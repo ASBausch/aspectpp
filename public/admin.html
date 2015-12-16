@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <link rel='stylesheet' href='stylesheets/style.css'>
+</head>
+<body>
+<div ng-controller="formCtrl">
+<form novalidate ng-submit="submit()">
+    <h2>Add Artist</h2>
+    <div>
+        <label for="addArtist">Artist Name</label>
+        <input type="text" name="addArtist" id="addArtist" ng-model="artist.addArtist">
+    </div>
+    <div>
+        <h2>Works</h2>
+        <label for="titleOne">Title One</label>
+        <input type="text" name="titleOne" id="titleOne" ng-model="artist.titleOne">
+        <label for="styleOne">Style</label>
+        <input list="styleOne" ng-model="artist.styleOne">
+        <datalist id="styleOne">
+            <option value="Abstract Art">
+            <option value="Abstract Expressionism">
+            <option value="Art Nouveau">
+            <option value="Baroque">
+            <option value="Conceptual Art">
+            <option value="Cubism">
+            <option value="Early Renaissance">
+            <option value="Expressionism">
+            <option value="High Renaissance">
+            <option value="Impressionism">
+            <option value="Mannerism">
+            <option value="Neoclassicism">
+            <option value="Neo-Expressionism">
+            <option value="Northern Renaissance">
+            <option value="Photo Realism">
+            <option value="Pop Art">
+            <option value="Post Impressionism">
+            <option value="Primitivism">
+            <option value="Realism">
+            <option value="Rococo">
+            <option value="Romanticism">
+            <option value="Street Art">
+            <option value="Surrealism">
+            <option value="Symbolism">
+        </datalist>
+        <label for="yearOne">Year Completed</label>
+        <input type="number" name="yearOne" id="yearOne" ng-model="artist.yearOne">
+        <label for="urlOne">Image Url</label>
+        <input type="url" name="urlOne" id="urlOne" ng-model="artist.urlOne">
+        <div>
+        <label for="publicDomainOne">Public Domain</label>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainOne" id="publicDomainOne" value="true" ng-model="artist.publicDomainOne"> True
+        <br>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainOne" id="publicDomainOne" value="false" ng-model="artist.publicDomainOne"> False
+        </div>
+        <label for="collectedByOne">Collected By</label>
+        <input type="text" name="collectedByOne" id="collectedByOne" ng-model="artist.collectedByOne">
+    </div>
+    <div>
+        <h2>Works</h2>
+        <label for="titleTwo">Title Two</label>
+        <input type="text" name="titleTwo" id="titleTwo" ng-model="artist.titleTwo">
+        <label for="styleTwo">Style</label>
+        <input list="styleTwo" ng-model="artist.styleTwo">
+        <datalist id="styleTwo">
+            <option value="Abstract Art">
+            <option value="Abstract Expressionism">
+            <option value="Art Nouveau">
+            <option value="Baroque">
+            <option value="Conceptual Art">
+            <option value="Cubism">
+            <option value="Early Renaissance">
+            <option value="Expressionism">
+            <option value="High Renaissance">
+            <option value="Impressionism">
+            <option value="Mannerism">
+            <option value="Neoclassicism">
+            <option value="Neo-Expressionism">
+            <option value="Northern Renaissance">
+            <option value="Photo Realism">
+            <option value="Pop Art">
+            <option value="Post Impressionism">
+            <option value="Primitivism">
+            <option value="Realism">
+            <option value="Rococo">
+            <option value="Romanticism">
+            <option value="Street Art">
+            <option value="Surrealism">
+            <option value="Symbolism">
+        </datalist>
+        <label for="yearTwo">Year Completed</label>
+        <input type="number" name="yearTwo" id="yearTwo" ng-model="artist.yearTwo">
+        <label for="urlTwo">Image Url</label>
+        <input type="url" name="urlTwo" id="urlTwo" ng-model="artist.urlTwo">
+        <div>
+        <label for="publicDomainTwo">Public Domain</label>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainTwo" id="publicDomainTwo" value="true" ng-model="artist.publicDomainTwo"> True
+        <br>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainTwo" id="publicDomainTwo" value="false" ng-model="artist.publicDomainTwo"> False
+        </div>
+        <label for="collectedByTwo">Collected By</label>
+        <input type="text" name="collectedByTwo" id="collectedByTwo" ng-model="artist.collectedByTwo">
+    </div>
+    <div>
+        <h2>Works</h2>
+        <label for="titleThree">Title One</label>
+        <input type="text" name="titleThree" id="titleThree" ng-model="artist.titleThree">
+        <label for="styleThree">Style</label>
+        <input list="styleThree" ng-model="artist.styleThree">
+        <datalist id="styleThree">
+            <option value="Abstract Art">
+            <option value="Abstract Expressionism">
+            <option value="Art Nouveau">
+            <option value="Baroque">
+            <option value="Conceptual Art">
+            <option value="Cubism">
+            <option value="Early Renaissance">
+            <option value="Expressionism">
+            <option value="High Renaissance">
+            <option value="Impressionism">
+            <option value="Mannerism">
+            <option value="Neoclassicism">
+            <option value="Neo-Expressionism">
+            <option value="Northern Renaissance">
+            <option value="Photo Realism">
+            <option value="Pop Art">
+            <option value="Post Impressionism">
+            <option value="Primitivism">
+            <option value="Realism">
+            <option value="Rococo">
+            <option value="Romanticism">
+            <option value="Street Art">
+            <option value="Surrealism">
+            <option value="Symbolism">
+        </datalist>
+        <label for="yearThree">Year Completed</label>
+        <input type="number" name="yearThree" id="yearThree" ng-model="artist.yearThree">
+        <label for="urlThree">Image Url</label>
+        <input type="url" name="urlThree" id="urlThree" ng-model="artist.urlThree">
+        <div>
+        <label for="publicDomainThree">Public Domain</label>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainThree" id="publicDomainThree" value="true" ng-model="artist.publicDomainThree"> True
+        <br>
+        </div>
+        <div>
+        <input type="radio" name="publicDomainThree" id="publicDomainThree" value="false" ng-model="artist.publicDomainThree"> False
+        </div>
+        <label for="collectedByThree">Collected By</label>
+        <input type="text" name="collectedByThree" id="collectedByThree" ng-model="artist.collectedByThree">
+        <div>
+        <input type="submit" id="submit" value="Submit">
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>
