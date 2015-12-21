@@ -24,11 +24,12 @@
             <button>Another</button>
             <button>Artist</button>
         </section>
-        <footer>copyright information</footer>
-            <p ng-show=" ">Artworks protected by copyright are supposed to be used only for contemplation.
+        <footer ng-mouseenter="options=true" ng-mouseleave="options=false">copyright information
+                <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
                 Images of that type of artworks are prohibited for copying, printing, or any kind
                 of reproducing and communicating to public since these activities may be considered
                 copyright infringement.</p>
+        </footer>
     </main>
 </body>
 </html>
