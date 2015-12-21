@@ -5,14 +5,14 @@
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
-    <script src="javascripts/app.js"></script>
+    <script src="javascripts/mainController.js"></script>
     <link rel='stylesheet' href='stylesheets/style.css'>
 </head>
-<body ng-app='myApp'>
+<body ng-app='app' ng-controller='MainController as main'>
 <main>
     <header>
         <img src ="images/aspectLogo.png" alt="Aspect Logo">
-        <h1>Aspect</h1>
+        <h1>{{main.title}}</h1>
     </header>
     <section>
         <figure>
@@ -30,14 +30,14 @@
                 <input type="radio" id="artDetails" name="tab-group-1" checked>
                 <label for="artDetails">Details</label>
                 <div class="content">
-                    <h1>Title: {{angular stuff from database}}</h1>
-                    <h1>Style: {{angular stuff from database}}</h1>
-                    <h1>Date Completed: {{angular stuff from database}}</h1>
-                    <h1>Public Domain: {{angular stuff from database}}</h1>
-                    <h3> <!-- angular stuff to view on hover-->WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
+                    <h1>Title:</h1>
+                    <h1>Style:</h1>
+                    <h1>Date Completed:</h1>
+                    <h1 ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain:</h1>
+                    <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
                         displaying of the images of public domain artworks solely. We use here Copyright term based
                         on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
-                        the duration of copyright term may differ.</h3>
+                        the duration of copyright term may differ.</p>
                 </div>
             </div>
 
@@ -46,14 +46,14 @@
                 <label for="relatedWorks">Related Works</label>
                 <div class="content">
                     <div class="byArtist">
-                    <h1>More by {{angular artist name here}}</h1>
+                    <h1>More by</h1>
                     </div>
                     <div class="byArtistWorks">
                         <img ng-src=" " alt="Image of 'angular info for title here'"/>
                         <img ng-src=" " alt="Image of 'angular info for title here'"/>
                     </div>
                     <div class="byStyle">
-                        <h1>More by {{angular style name here}}</h1>
+                        <h1>More in</h1>
                     </div>
                     <div class="byStyle">
                         <img ng-src=" " alt="Image of 'angular info for title here'"/>
@@ -66,17 +66,18 @@
                 <input type="radio" id="artistBio" name="tab-group-1">
                 <label for="artistBio">Artist</label>
                 <div class="content">
-                    <p>{{api stuff? bio stuff?}}</p>
+                    <p>Bio stuff here</p>
                 </div>
             </div>
 
         </div>
     </aside>
-    <footer>copyright information</footer>
-    <p ng-show=" ">Artworks protected by copyright are supposed to be used only for contemplation.
-        Images of that type of artworks are prohibited for copying, printing, or any kind
-        of reproducing and communicating to public since these activities may be considered
-        copyright infringement.</p>
+    <footer ng-mouseenter="options=true" ng-mouseleave="options=false">copyright information
+        <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
+            Images of that type of artworks are prohibited for copying, printing, or any kind
+            of reproducing and communicating to public since these activities may be considered
+            copyright infringement.</p>
+    </footer>
 </main>
 </body>
 </html>

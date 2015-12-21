@@ -26,6 +26,5 @@ var artSchema = new Schema({
     collectedByThree:String
 });
 
-var Art = mongoose.model('Art', artSchema);
-
+var Art = mongoose.model('aspectarts', artSchema)
 module.exports= Art;

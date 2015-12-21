@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var mongoose = require('mongoose');
+var Art = require('../models/aspectarts');
 
 router.get('/', function(req, res, next) {
     /** GET makes the url available while res(responce)
@@ -12,33 +13,6 @@ router.get('/', function(req, res, next) {
      */
     res.sendFile('admin.html', { root: path.join(__dirname, '../public') });
 });
-
-
-//using mongoose to simplify our data grab
-//mongoose.connect('mongodb://localhost/aspect');
-////this creates our new collection and sets the model for it
-var Art = mongoose.model('aspectArt',
-    {   addArtist:String,
-        titleOne:String,
-        styleOne:String,
-        yearOne:Number,
-        urlOne:String,
-        publicDomainOne:Boolean,
-        collectedByOne:String,
-        titleTwo:String,
-        styleTwo:String,
-        yearTwo:Number,
-        urlTwo:String,
-        publicDomainTwo:Boolean,
-        collectedByTwo:String,
-        titleThree:String,
-        styleThree:String,
-        yearThree:Number,
-        urlThree:String,
-        publicDomainThree:Boolean,
-        collectedByThree:String
-    });
-
 
 router.post('/', function(req, res, next) {
     //takes data from our submission and inserts it into the database
