@@ -9,10 +9,12 @@ var Art = require('../models/aspectarts');
 router.get('/', function (req, res) {
     Art.find({}, function (err, aspectarts) {
         if (err) throw err;
-        res.send(aspectarts);
+        res.json(aspectarts);
         console.log(aspectarts);
         });
 
 });
+
+
 
 module.exports = router;
