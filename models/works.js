@@ -5,7 +5,7 @@ var mongoose = require('mongoose'); // our Object Document Mapper (ODM) for Mong
 var Schema = mongoose.Schema; // mongoose schema for defining our models
 
 var artSchema = new Schema({
-    artist:String,
+    addArtist:String,
     titleOne:String,
     styleOne:String,
     yearOne:Number,

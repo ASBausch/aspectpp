@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
-    <script src="/public/javascripts/app.js"></script>
-    <link rel='stylesheet' href='/public/stylesheets/style.css'>
+    <script src="javascripts/mainController.js"></script>
+    <link rel='stylesheet' href='stylesheets/style.css'>
 </head>
-<body>
+<body ng-app='app' ng-controller='MainController as main'>
+    <main>
+    <header>
+        <img src ="images/aspectLogo.png" alt="Aspect Logo">
+        <h1>{{main.title}}</h1>
+    </header>
+        <section>
+        <figure>
+            <img ng-src=" " alt="Image of 'angular info for title here'"/>
+        </figure>
+        </section>
+        <section>
+            <button>Style</button>
+            <button>Another</button>
+            <button>Artist</button>
+        </section>
+        <footer>copyright information</footer>
+            <p ng-show=" ">Artworks protected by copyright are supposed to be used only for contemplation.
+                Images of that type of artworks are prohibited for copying, printing, or any kind
+                of reproducing and communicating to public since these activities may be considered
+                copyright infringement.</p>
+    </main>
 </body>
 </html>

@@ -12,6 +12,8 @@ var admin = require('./routes/admin');
 var detail = require('./routes/detail');
 var single = require('./routes/single');
 var gallery = require('./routes/gallery');
+//
+var Art = require('./models/works');
 
 var app = express();
 
