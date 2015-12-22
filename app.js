@@ -7,11 +7,11 @@ var bodyParser = require('body-parser');
 //may not use
 var expressValidator = require('express-validator');
 var index = require('./routes/index');
-var users = require('./routes/users');
+
 var admin = require('./routes/admin');
-var detail = require('./routes/detail');
+
 var single = require('./routes/single');
-var gallery = require('./routes/gallery');
+
 //
 var Art = require('./models/aspectarts');
 var aspectarts = require('./routes/aspectarts');
@@ -33,11 +33,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
 
 app.use('/', index);
-app.use('/users', users);
+
 app.use('/admin', admin);
-app.use('/detail', detail);
+
 app.use('/single', single);
-app.use('/gallery', gallery);
+
 app.use('/aspectarts', aspectarts);
 
 // Bring Mongoose into the app
