@@ -12,6 +12,10 @@ var admin = require('./routes/admin');
 
 var single = require('./routes/single');
 
+var style = require('./routes/style');
+
+var artist = require('./routes/artist');
+
 //
 var Art = require('./models/aspectarts');
 var aspectarts = require('./routes/aspectarts');
@@ -39,6 +43,10 @@ app.use('/admin', admin);
 app.use('/single', single);
 
 app.use('/aspectarts', aspectarts);
+
+app.use('/style', style);
+
+app.use('/artist', artist);
 
 // Bring Mongoose into the app
 var mongoose = require( 'mongoose' );
