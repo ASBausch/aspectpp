@@ -24,12 +24,12 @@
         <button>Another</button>
         <button>Artist</button>
     </section>
-    <aside ng-controller="artDetailCntrl">
+    <aside>
         <div class="tabs">
             <div class="tab">
                 <input type="radio" id="artDetails" name="tab-group-1" checked>
                 <label for="artDetails">Details</label>
-                <div class="content">
+                <div class="content" ng-controller="artDetailCntrl">
                     <h1>Title: {{titleTwo}}</h1>
                     <h1>Style: {{styleTwo}}</h1>
                     <h1>Date Completed: {{yearTwo}}</h1>
@@ -45,19 +45,19 @@
                 <input type="radio" id="relatedWorks" name="tab-group-1">
                 <label for="relatedWorks">Related Works</label>
                 <div class="content">
-                    <div class="byArtist">
+                    <div class="byArtist" ng-controller="artDetailCntrl">
                     <h1>More by {{addArtist}}</h1>
                     </div>
-                    <div class="byArtistWorks">
-                        <img ng-src="{{urlOne}} " alt="Image of 'angular info for title here'"/>
-                        <img ng-src="{{urlThree}} " alt="Image of 'angular info for title here'"/>
+                    <div class="byArtistWorks" ng-controller="artDetailCntrl">
+                        <img ng-src="{{urlOne}}" alt="Image of {{titleOne}}"/>
+                        <img ng-src="{{urlThree}}" alt="Image of {{titleThree}}"/>
                     </div>
-                    <div class="byStyle">
+                    <div class="byStyle" ng-controller="artDetailCntrl">
                         <h1>More in {{styleOne}}</h1>
                     </div>
                     <div class="byStyle" ng-controller="artStyleCntrl">
-                        <img ng-src="{{urlOne}} " alt="Image of 'angular info for title here'"/>
-                        <img ng-src="{{urlTwo}} " alt="Image of 'angular info for title here'"/>
+                        <img ng-src="{{urlOne}}" alt="Image of {{titleOne}}"/>
+                        <img ng-src="{{urlTwo}}" alt="Image of {{titleTwo}}"/>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ angular.module('app').controller('artStyleCntrl', function($scope, $http) {
     });
 });
 
-angular.module('app').controller('artStyleCntrl', function($scope, $http) {
+angular.module('app').controller('artistCntrl', function($scope, $http) {
     $http({
         method: 'GET',
         url: '/artist'
