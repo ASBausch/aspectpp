@@ -14,12 +14,9 @@
         <img src ="images/aspectLogo.png" alt="Aspect Logo">
         <h1>{{main.title}}</h1>
     </header>
-        <div ng-controller="artListCntrl">
-            <p>{{addArtist}}</p>
-        </div>
         <section>
-        <figure>
-            <img ng-src=" " alt="Image of 'angular info for title here'"/>
+        <figure ng-controller="artListCntrl">
+            <img ng-src="{{urlTwo}}" alt="Image of 'angular info for title here'"/>
         </figure>
         </section>
         <section>

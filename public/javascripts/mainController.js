@@ -13,10 +13,11 @@ angular.module('app').controller('artListCntrl', function($scope, $http) {
         method: 'GET',
         url: '/aspectarts'
     }).then(function(response) {
-        
-        $scope.addArtist = response.data[0].addArtist;
 
-        console.log($scope.addArtist);
+        $scope.addArtist = response.data[1].addArtist;
+        $scope.urlTwo = response.data[1].urlTwo;
+
+        console.log($scope.urlTwo);
     });
     console.log('got to the end');
 
