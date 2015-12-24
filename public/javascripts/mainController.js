@@ -1,7 +1,19 @@
 /**
  * Created by manadab on 12/20/15.
  */
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngRoute']);
+
+
+//app.config(['$routeProvider', function($routeProvider){
+//    $routeProvider.when('/', {
+//        templateUrl: '/index.html',
+//        controller: 'MainController'
+//    }).when('/single', {
+//        templateUrl: '/single.html',
+//        controller: 'artDetailCntrl'
+//    });
+//}]);
+
 
 angular.module('app').controller("MainController", function(){
     var vm = this;
@@ -18,6 +30,10 @@ angular.module('app').controller('artIndexCntrl', function($scope, $http) {
         $scope.id = response.data[1]._id;
     });
 });
+
+
+
+
 
 angular.module('app').controller('artStyleCntrl', function($scope, $http) {
     $http({

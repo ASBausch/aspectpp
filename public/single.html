@@ -1,83 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
-    <script src="javascripts/mainController.js"></script>
+    <meta charset="utf-8">
+    <title>Aspect</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300|Philosopher' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='stylesheets/style.css'>
 </head>
-<body ng-app='app' ng-controller='MainController as main'>
+<body ng-app='app'> <!--ng-controller='MainController as main'-->
 <main>
     <header>
-        <img src ="images/aspectLogo.png" alt="Aspect Logo">
-        <h1>{{main.title}}</h1>
+        <div class='row header'>
+            <div class='col-1'></div>
+            <img class='logo col-1' src ="images/aspectLogo.png" alt="Aspect Logo">
+            <h1 class='title col-5'>Aspect</h1>
+            <div class='col-5'></div>
+        </div>
     </header>
     <section>
-        <figure ng-controller="artIndexCntrl">
-            <img ng-src="{{urlTwo}}" alt="Image of 'angular info for title here'"/>
-        </figure>
-    </section>
-    <section>
-        <button>Style</button>
-        <button>Another</button>
-        <button>Artist</button>
-    </section>
-    <aside>
-        <div class="tabs">
-            <div class="tab">
-                <input type="radio" id="artDetails" name="tab-group-1" checked>
-                <label for="artDetails">Details</label>
-                <div class="content" ng-controller="artDetailCntrl">
-                    <h1>Title: {{titleTwo}}</h1>
-                    <h1>Style: {{styleTwo}}</h1>
-                    <h1>Date Completed: {{yearTwo}}</h1>
-                    <h1 ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: {{publicDomainOne}}</h1>
-                    <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
+        <div class='row'>
+            <figure>
+                <div class='col-1'></div>
+                <a href="/single">
+                    <img class='mainImg col-6'src="http://uploads8.wikiart.org/images/istvan-molnar/voyage-to-the-south-1989.jpg" alt="Image of 'angular info for title here'"/>
+                </a>
+                <div class='col-1'></div>
+            </figure>
+            <div class="col-4">
+                <div class="tab">
+                    <input type="radio" id="artDetails" name="tab-group-1" checked>
+                     <label for="artDetails" class="tabTop">Details</label>
+                        <div class="content"></div> <!--ng-controller="artDetailCntrl"-->
+                        <p>Title: Voyage to the South</p>
+                        <p>Style: Abstract art</p>
+                        <p>Date Completed: 1989</p>
+                        <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: {{publicDomainOne}}</p>
+                        <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
                         displaying of the images of public domain artworks solely. We use here Copyright term based
                         on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
                         the duration of copyright term may differ.</p>
-                </div>
-            </div>
+                 </div>
 
-            <div class="tab">
-                <input type="radio" id="relatedWorks" name="tab-group-1">
-                <label for="relatedWorks">Related Works</label>
-                <div class="content">
-                    <div class="byArtist" ng-controller="artDetailCntrl">
-                    <h1>More by {{addArtist}}</h1>
-                    </div>
-                    <div class="byArtistWorks" ng-controller="artDetailCntrl">
-                        <img ng-src="{{urlOne}}" alt="Image of {{titleOne}}"/>
-                        <img ng-src="{{urlThree}}" alt="Image of {{titleThree}}"/>
-                    </div>
-                    <div class="byStyle" ng-controller="artDetailCntrl">
-                        <h1>More in {{styleOne}}</h1>
-                    </div>
-                    <div class="byStyle" ng-controller="artStyleCntrl">
-                        <img ng-src="{{urlOne}}" alt="Image of {{titleOne}}"/>
-                        <img ng-src="{{urlTwo}}" alt="Image of {{titleTwo}}"/>
-                    </div>
-                </div>
-            </div>
+                <div class="tab">
+                    <input type="radio" id="relatedWorks" name="tab-group-1">
+                    <label for="relatedWorks" class="tabTop">Related Works</label>
+                        <div class="content">
+                        <div class="byArtist"><!-- ng-controller="artDetailCntrl"-->
+                            <p>More by Istvan Molnar</p>
+                        </div>
+                        <div class="byArtistWorks"><!-- ng-controller="artDetailCntrl"-->
+                            <img src="http://uploads5.wikiart.org/images/istvan-molnar/enemies-1989.jpg" alt="Image of Enemies"/>
+                            <img src="http://uploads2.wikiart.org/images/istvan-molnar/revelation-1988(1).jpg" alt="Image of Revelation"/>
+                        </div>
+                        <div class="byStyle"><!-- ng-controller="artDetailCntrl"-->
+                            <p>More in Abstract Art</p>
+                        </div>
+                        <div class="byStyle"><!-- ng-controller="artStyleCntrl"-->
+                            <img src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>
+                            <img src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>
+                        </div>
+                        </div>
 
-            <div class="tab">
-                <input type="radio" id="artistBio" name="tab-group-1">
-                <label for="artistBio">Artist</label>
-                <div class="content">
-                    <p>Bio stuff here</p>
                 </div>
-            </div>
-
+                    <div class="tab">
+                        <input type="radio" id="artistBio" name="tab-group-1">
+                        <label for="artistBio" class="tabTop">Artist</label>
+                            <div class="content">
+                            <p>Bio stuff here</p>
+                            </div>
+                    </div>
+                    </div>
         </div>
-    </aside>
-    <footer ng-mouseenter="options=true" ng-mouseleave="options=false">copyright information
+    </section>
+    <section>
+        <div class='row'>
+            <div class='col-1'></div>
+            <div class='col-2'><button class='artChange'>Style</button></div>
+            <div class='col-2 another'><button class='artChange'>Another</button></div>
+            <div class='col-2'><button class='artChange'>Artist</button></div>
+            <div class='col-4'></div>
+        </div>
+    </section>
+
+    <footer class='col-12' ng-mouseenter="options=true" ng-mouseleave="options=false"><p class='copyW'>copyright information</pclass>
         <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
             Images of that type of artworks are prohibited for copying, printing, or any kind
             of reproducing and communicating to public since these activities may be considered
             copyright infringement.</p>
     </footer>
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+<script src="javascripts/mainController.js"></script>
 </body>
 </html>
