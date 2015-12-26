@@ -17,20 +17,22 @@
         </div>
     </header>
     <section>
-        <div class='row'>
-            <figure>
-                <div class='col-1'></div>
-                <a href="/single">
-                    <img class='mainImg col-6'src="http://uploads8.wikiart.org/images/istvan-molnar/voyage-to-the-south-1989.jpg" alt="Image of 'angular info for title here'"/>
-                </a>
-                <div class='col-1'></div>
-            </figure>
+            <div class='row'>
+                    <div class='col-1'></div>
+                    <div class="col-7">
+                        <img class='mainImg'src="http://uploads8.wikiart.org/images/istvan-molnar/voyage-to-the-south-1989.jpg" alt="Image of 'angular info for title here'"/>
+                        <div class="singButtons">
+                        <button class="artSingle">Style</button>
+                        <button class="artSingle anotherSing">Another</button>
+                        <button class="artSingle">Artist</button>
+                        </div>
+                    </div>
             <div class="col-3">
                 <div class="tabs">
                     <ul class="tab-links">
                         <li class="active"><a href="#tab1">Details</a></li>
                         <li><a href="#tab2">More Art</a></li>
-                        <!--<li><a href="#tab3">Bio</a></li>-->
+                        <li><a href="#tab3">Bio</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -38,7 +40,7 @@
                             <p>Title: Voyage to the South</p>
                             <p>Style: Abstract art</p>
                             <p>Date Completed: 1989</p>
-                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: {{publicDomainOne}}</p>
+                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: False{{publicDomainOne}}</p>
                             <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
                             displaying of the images of public domain artworks solely. We use here Copyright term based
                             on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
@@ -60,63 +62,14 @@
                             </div>
                         </div>
 
-                        <!--<div id="tab3" class="tab">-->
-                            <!--<p>Bio stuff here</p>-->
-                        <!--</div>-->
                 </div>
-
-                    <div class='col-1'></div>
-
-
-
-
-                <!--<ul class="tab">-->
-                        <!--<li class="content">&lt;!&ndash;ng-controller="artDetailCntrl"&ndash;&gt;-->
-                        <!--<p>Title: Voyage to the South</p>-->
-                        <!--<p>Style: Abstract art</p>-->
-                        <!--<p>Date Completed: 1989</p>-->
-                        <!--<p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: {{publicDomainOne}}</p>-->
-                        <!--<p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and-->
-                        <!--displaying of the images of public domain artworks solely. We use here Copyright term based-->
-                        <!--on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,-->
-                        <!--the duration of copyright term may differ.</p>-->
-                        <!--</li>-->
-
-                        <!--<li class="content">-->
-                       <!--&lt;!&ndash; ng-controller="artDetailCntrl"&ndash;&gt;-->
-                            <!--<p>More by Istvan Molnar</p>-->
-                        <!--<div class="byArtistWorks">&lt;!&ndash; ng-controller="artDetailCntrl"&ndash;&gt;-->
-                            <!--<img src="http://uploads5.wikiart.org/images/istvan-molnar/enemies-1989.jpg" alt="Image of Enemies"/>-->
-                            <!--<img src="http://uploads2.wikiart.org/images/istvan-molnar/revelation-1988(1).jpg" alt="Image of Revelation"/>-->
-                        <!--</div>-->
-                        <!--<div class="byStyle">&lt;!&ndash; ng-controller="artDetailCntrl"&ndash;&gt;-->
-                            <!--<p>More in Abstract Art</p>-->
-                        <!--</div>-->
-                        <!--<div class="byStyle">&lt;!&ndash; ng-controller="artStyleCntrl"&ndash;&gt;-->
-                            <!--<img src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>-->
-                            <!--<img src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>-->
-                        <!--</div>-->
-                        <!--</li>-->
-                        <!--<li class="tab">-->
-                            <!--<div class="content">-->
-                            <!--<p>Bio stuff here</p>-->
-                            <!--</div>-->
-                        <!--</li>-->
                 </div>
             </div>
-        </div>
-    </section>
-    <section>
-        <div class='row'>
-            <div class='col-1'></div>
-            <div class='col-2'><button class='artChange'>Style</button></div>
-            <div class='col-2 another'><button class='artChange'>Another</button></div>
-            <div class='col-2'><button class='artChange'>Artist</button></div>
-            <div class='col-4'></div>
-        </div>
+                <div class='col-1'></div>
+                </div>
     </section>
 
-    <footer class='col-12' ng-mouseenter="options=true" ng-mouseleave="options=false"><p class='copyW'>copyright information</p>
+    <footer class='col-8' ng-mouseenter="options=true" ng-mouseleave="options=false"><p class='copyWsingle'>copyright information</p>
         <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
             Images of that type of artworks are prohibited for copying, printing, or any kind
             of reproducing and communicating to public since these activities may be considered

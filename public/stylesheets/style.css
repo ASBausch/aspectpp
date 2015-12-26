@@ -2,6 +2,16 @@ main{
   background-color: #FEFBF7;
 }
 
+img {
+  max-width: 80%;
+  height: auto;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+}
+
 /* box-sizing */
 
 * {
@@ -42,14 +52,12 @@ main{
 .logo {
   padding: 17px 27px 16px 18px;
   margin: 21px 0px 0px 0px;
-
 }
 
 .title {
   text-align: right;
   font-family: 'Philosopher', sans-serif;
   color: #6F6057;
-
 }
 
 /* buttons */
@@ -66,23 +74,45 @@ main{
   padding: 2px 8px 2px 8px;
 }
 
-.another {
-  padding: 15px 0px 2px 0px;
-}
-
 .artChange:hover {
   background: #CEC6BA;
   background-image: linear-gradient(to bottom, #CEC6BA, #6F6058);
 }
 
-/* image */
-
-.image {
-  padding: 0px;
+.another {
+  padding: 15px 0px 2px 0px;
 }
 
+.artSingle {
+  width: 10%;
+  margin: 20px 40px 0px 40px;
+  display: inline;
+  background: #6F6058;
+  border-radius: 2px;
+  font-family: 'Raleway', sans-serif;
+  color: #FEFBF7;
+  font-size: 14px;
+  padding: 2px 8px 2px 8px;
+}
+
+.singButtons{
+  text-align: center;
+}
+
+.artSingle:hover {
+  background: #CEC6BA;
+  background-image: linear-gradient(to bottom, #CEC6BA, #6F6058);
+}
+
+.anotherSing {
+  padding: 2px 0px 2px 0px;
+}
+
+/* images */
+
 .mainImg {
-  padding: 0px
+  width:100%;
+  margin: 0px 0px 0px 55px;
 }
 
 .thumb {
@@ -97,16 +127,8 @@ main{
   font-size: 10px;
 }
 
-img {
-  max-width: 80%;
-  height: auto;
-}
-
-/* footer */
-
-p {
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px;
+.copyWsingle {
+  text-align: left;
 }
 
 /*----- Tabs -----*/
@@ -118,6 +140,10 @@ p {
 /*----- Tab Links -----*/
 /* Clearfix */
 
+.tab-links {
+  margin:0px;
+}
+
 .tab-links:after {
   display:block;
   clear:both;
@@ -125,16 +151,20 @@ p {
 }
 
 .tab-links li {
-  margin:0px 5px;
+  margin:0px 0px;
   float:left;
   list-style:none;
+  border-radius:3px;
+  border-top:solid 1px;
+  border-left: solid 1px;
+  border-color: #E3E0DC
 }
 
 .tab-links a {
-  padding:9px 15px;
+  padding:9px 10px;
   display:inline-block;
   border-radius:3px 3px 0px 0px;
-  background:#7FB5DA;
+  background:#E3E0DC;
   font-size:16px;
   font-weight:600;
   color:#4c4c4c;
@@ -143,8 +173,9 @@ p {
 }
 
 .tab-links a:hover {
-  background:#a7cce5;
+  background:#4c4c4c;
   text-decoration:none;
+  color:#E3E0DC
 }
 
 li.active a, li.active a:hover {
@@ -168,6 +199,9 @@ li.active a, li.active a:hover {
 .tab.active {
   display:block;
 }
+
+
+
 
 
 
