@@ -9,7 +9,11 @@ img {
 
 p {
   font-family: 'Raleway', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
+}
+
+footer {
+  background-color: #FEFBF7;
 }
 
 /* box-sizing */
@@ -58,6 +62,7 @@ p {
   text-align: right;
   font-family: 'Philosopher', sans-serif;
   color: #6F6057;
+  text-shadow: 1px 1px 1px grey;
 }
 
 /* buttons */
@@ -67,11 +72,13 @@ p {
   margin: auto;
   display: block;
   background: #6F6058;
-  border-radius: 2px;
+  border-radius: 4px;
   font-family: 'Raleway', sans-serif;
   color: #FEFBF7;
   font-size: 14px;
   padding: 2px 8px 2px 8px;
+  box-shadow: 2px 2px 5px grey;
+  outline: none;
 }
 
 .artChange:hover {
@@ -85,14 +92,16 @@ p {
 
 .artSingle {
   width: 10%;
-  margin: 20px 40px 0px 40px;
+  margin: 20px 60px 0px 52px;
   display: inline;
   background: #6F6058;
-  border-radius: 2px;
+  border-radius: 4px;
   font-family: 'Raleway', sans-serif;
   color: #FEFBF7;
   font-size: 14px;
   padding: 2px 8px 2px 8px;
+  box-shadow: 2px 2px 5px grey;
+  outline: none;
 }
 
 .singButtons{
@@ -110,14 +119,22 @@ p {
 
 /* images */
 
-.mainImg {
+.main {
+  border: 2px solid #6F6056;
+  padding: 0px;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.detailImg {
   width:100%;
   margin: 0px 0px 0px 55px;
+  border: 2px solid #6F6056;
+  box-shadow: 2px 2px 5px grey;
 }
 
 .thumb {
-  height: 150px;
-  width: 150px
+  height: 200px;
+  width: 200px
 }
 
 /* footer/copywrite */
@@ -157,7 +174,8 @@ p {
   border-radius:3px;
   border-top:solid 1px;
   border-left: solid 1px;
-  border-color: #E3E0DC
+  border-color: #E3E0DC;
+  color: #6F6056
 }
 
 .tab-links a {
@@ -167,20 +185,20 @@ p {
   background:#E3E0DC;
   font-size:16px;
   font-weight:600;
-  color:#4c4c4c;
+  color:#6F6056;
   transition:all linear 0.15s;
   text-decoration:none;
 }
 
 .tab-links a:hover {
-  background:#4c4c4c;
+  background:#6F6056;
   text-decoration:none;
   color:#E3E0DC
 }
 
 li.active a, li.active a:hover {
   background:#fff;
-  color:#4c4c4c;
+  color:#6F6056;
 }
 
 /*----- Content of Tabs -----*/
