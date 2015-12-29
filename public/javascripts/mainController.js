@@ -52,21 +52,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http) 
     });
 });
 
-//controller for tab menu on single page currently unused
-
-angular.module('app').controller('MenuController', function(){
-    //initializes selected tab as one on load
-    this.tab = 1;
-    //when selected sets tab to actually selected tab
-    this.selectTab = function(setTab) {
-        this.tab = setTab;
-    };
-    //shows the tab content that is selected by checking if clicked tab is active tab
-    this.isSelected = function(checkTab){
-        return this.tab == checkTab;
-    }
-});
-
 //controller for Artist button on index/single page currently unsed
 
 angular.module('app').controller('ArtIndexController', function($scope, $http) {

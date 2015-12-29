@@ -6,13 +6,13 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:300|Philosopher' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='stylesheets/style.css'>
 </head>
-<body ng-app='app'> <!--ng-controller='MainController as main'-->
+<body ng-app='app' ng-controller='MainController as main'>
 <main>
     <header>
         <div class='row header'>
             <div class='col-1'></div>
             <img class='logo col-1' src ="images/aspectLogo.png" alt="Aspect Logo">
-            <h1 class='title col-9'>Aspect</h1>
+            <h1 class='title col-9'>{{main.title}}</h1>
             <div class='col-1'></div>
         </div>
     </header>
@@ -28,15 +28,15 @@
                         </div>
                     </div>
             <div class="col-3">
-                <div class="tabs"> <!--ng-controller="TabController as tab"-->
+                <div class="tabs">
                     <ul class="tab-links">
-                        <li class="active"> <!--ng-class='{tab.isSelected(1)}' a href ng-click='tab.selectTab(1)'--><a href="#tab1">Details</a></li>
-                        <li><!-- ng-class='{tab.isSelected(2)}' a href ng-click='tab.selectTab(2)'--><a  href="#tab2">More Art</a></li>
-                        <li><!-- ng-class='{tab.isSelected(3)}' a href ng-click='tab.selectTab(3)''--><a href="#tab3">Bio</a></li>
+                        <li class="active"><a href="#tab1">Details</a></li>
+                        <li><a  href="#tab2">More Art</a></li>
+                        <li><a href="#tab3">Bio</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div id="tab1" class="tab active" ng-controller="ArtDetailController as art"><!--ng-show="tab.setTab(1)"-->
+                        <div id="tab1" class="tab active" ng-controller="ArtDetailController as art">
                             <p>Title: {{titleOne}}</p>
                             <p>Style: {{styleOne}}</p>
                             <p>Date Completed: {{yearOne}}</p>
@@ -47,7 +47,7 @@
                             the duration of copyright term may differ.</p>
                         </div>
 
-                        <div id="tab2" class="tab" ng-controller="ArtDetailController as work"><!--ng-show ='tab.setTab(2)'-->
+                        <div id="tab2" class="tab" ng-controller="ArtDetailController as art">
                             <p>More by {{addArtist}}</p>
                             <div class="byArtistWorks">
                             <img class='thumb' ng-src={{urlTwo}} alt="{{titleTwo}}"/>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div id="tab3" class="tab"><!--ng-show ='tab.setTab(3)'-->
+                        <div id="tab3" class="tab">
                             <p>About this Work</p>
 
                         </div>
