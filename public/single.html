@@ -16,50 +16,55 @@
             <div class='col-1'></div>
         </div>
     </header>
-    <section>
+    <section ng-controller='ImageController as image'>
             <div class='row'>
                     <div class='col-1'></div>
                     <div class="col-7">
-                        <img class='detailImg'src="http://uploads8.wikiart.org/images/istvan-molnar/voyage-to-the-south-1989.jpg" alt="Image of 'angular info for title here'"/>
+                        <img class='detailImg'ng-src={{urlOne}} alt="{{titleOne}}"/>
                         <div class="singButtons">
-                        <button class="artSingle">Style</button>
-                        <button class="artSingle anotherSing">Another</button>
-                        <button class="artSingle">Artist</button>
+                        <button class="artSingle" data-style='Abstract' data-id='_id'>Style</button>
+                        <button class="artSingle anotherSing" data-id='_id'>Another</button>
+                        <button class="artSingle" data-artist='Artist Name' data-id='_id'>Artist</button>
                         </div>
                     </div>
             <div class="col-3">
-                <div class="tabs">
+                <div class="tabs"> <!--ng-controller="TabController as tab"-->
                     <ul class="tab-links">
-                        <li class="active"><a href="#tab1">Details</a></li>
-                        <li><a href="#tab2">More Art</a></li>
-                        <li><a href="#tab3">Bio</a></li>
+                        <li class="active"> <!--ng-class='{tab.isSelected(1)}' a href ng-click='tab.selectTab(1)'--><a href="#tab1">Details</a></li>
+                        <li><!-- ng-class='{tab.isSelected(2)}' a href ng-click='tab.selectTab(2)'--><a  href="#tab2">More Art</a></li>
+                        <li><!-- ng-class='{tab.isSelected(3)}' a href ng-click='tab.selectTab(3)''--><a href="#tab3">Bio</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div id="tab1" class="tab active">
-                            <p>Title: Voyage to the South</p>
-                            <p>Style: Abstract art</p>
-                            <p>Date Completed: 1989</p>
-                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain: False{{publicDomainOne}}</p>
+                        <div id="tab1" class="tab active" ng-controller="ArtDetailController as art"><!--ng-show="tab.setTab(1)"-->
+                            <p>Title: {{titleOne}}</p>
+                            <p>Style: {{styleOne}}</p>
+                            <p>Date Completed: {{yearOne}}</p>
+                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain:{{publicDomainOne}}</p>
                             <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
                             displaying of the images of public domain artworks solely. We use here Copyright term based
                             on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
                             the duration of copyright term may differ.</p>
                         </div>
 
-                        <div id="tab2" class="tab">
-                            <p>More by Istvan Molnar</p>
-                            <div class="byArtistWorks"><!-- ng-controller="artDetailCntrl"-->
-                            <img class='thumb' src="http://uploads5.wikiart.org/images/istvan-molnar/enemies-1989.jpg" alt="Image of Enemies"/>
-                            <img class='thumb' src="http://uploads2.wikiart.org/images/istvan-molnar/revelation-1988(1).jpg" alt="Image of Revelation"/>
+                        <div id="tab2" class="tab" ng-controller="ArtDetailController as work"><!--ng-show ='tab.setTab(2)'-->
+                            <p>More by {{addArtist}}</p>
+                            <div class="byArtistWorks">
+                            <img class='thumb' ng-src={{urlTwo}} alt="{{titleTwo}}"/>
+                            <img class='thumb' ng-src={{urlThree}} alt="{{titleThree}}"/>
                             </div>
-                            <div class="byStyle"><!-- ng-controller="artDetailCntrl"-->
-                            <p>More in Abstract Art</p>
+                            <div class="byStyle">
+                            <p>More in {{styleOne}}</p>
                             </div>
-                            <div class="byStyle"><!-- ng-controller="artStyleCntrl"-->
+                            <div class="byStyle">
                             <img class='thumb' src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>
                             <img class='thumb' src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>
                             </div>
+                        </div>
+
+                        <div id="tab3" class="tab"><!--ng-show ='tab.setTab(3)'-->
+                            <p>About this Work</p>
+
                         </div>
 
                 </div>

@@ -1,6 +1,7 @@
 /**
  * Created by manadab on 12/24/15.
  */
+//jQuery functional as angular alternative
 
 jQuery(document).ready(function() {
     $('.tabs .tab-links a').on('click', function(e)  {
