@@ -1,11 +1,13 @@
 /**
  * Created by manadab on 12/20/15.
  */
-    //all works from database are captured and available at /aspectarts
+
+//all works from database are captured and available at /aspectarts
 
 var express = require('express');
 var router = express.Router();
 var Art = require('../models/aspectarts');
+
 
 
 router.get('/', function (req, res) {

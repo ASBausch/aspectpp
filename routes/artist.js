@@ -7,7 +7,7 @@ var path = require('path');
 var Art = require('../models/aspectarts');
 
 router.get('/', function(req, res, next) {
-    Art.find({}, {"artist": 1, "url" : 1}, function (err, aspectarts) {
+    Art.find({}, {"artist": 1}, function (err, aspectarts) {
         if (err) throw err;
         res.json(aspectarts);
     });
