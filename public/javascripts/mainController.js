@@ -14,7 +14,8 @@ angular.module('app').controller("MainController", function(){
 //controller for main art on index page currently hard coded to be the piece I want to
 //start with, the scope and http methods of angular are required here
 
-angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http){
+angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http, $routeParams, $route ){
+    var viewed = [];
     $http({
         method: 'GET',
         url: '/aspectarts'
@@ -53,10 +54,33 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     $scope.onArtistClick = function (){
         $http({
             method: 'GET',
-            url: '/artist'
+            url: '/artist/' + $scope.artist
         }).then(function(response){
-            
-        })
+            for (var i=0; i< response.data.length; i++) {
+
+                var index = response.data[i]._id;
+                console.log(index);
+
+                if (viewed.indexOf(index) === -1) {
+
+                    $scope.id = response.data[i]._id;
+                    $scope.artist = response.data[i].artist;
+                    $scope.style = response.data[i].style;
+                    $scope.title = response.data[i].works[0].title;
+                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
+                    $scope.url = response.data[i].works[0].url;
+                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.works = response.data[i].works;
+
+
+
+                    viewed.push($scope.id);
+
+                    break;
+                }
+            }
+
+        });
     }
 
 }]);
@@ -90,6 +114,25 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         viewed.push($scope.id);
     });
 
+    $scope.onAnotherClick = function() {
+        $http({
+            method: 'GET',
+            url: '/aspectarts'
+        }).then(function(response){
+            var max = response.data.length;
+            var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
+            $scope.url = response.data[randomIndex].works[0].url;
+            $scope.title= response.data[randomIndex].works[0].title;
+            $scope.style = response.data[randomIndex].style;
+            $scope.artist = response.data[randomIndex].artist;
+            $scope.id = response.data[randomIndex]._id;
+            $scope.works = response.data[randomIndex].works;
+            $scope.loc = randomIndex;
+
+            console.log()
+        });
+    };
+
     $scope.onStyleClick = function(){
         $http({
             method: 'GET',
@@ -109,10 +152,10 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[i].title;
-                    $scope.yearCompleted = response.data[i].works[i].yearCompleted;
-                    $scope.url = response.data[i].works[i].url;
-                    $scope.publicDomain = response.data[i].works[i].publicDomain;
+                    $scope.title = response.data[i].works[0].title;
+                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
+                    $scope.url = response.data[i].works[0].url;
+                    $scope.publicDomain = response.data[i].works[0].publicDomain;
                     $scope.works = response.data[i].works;
 
                     viewed.push($scope.id);
