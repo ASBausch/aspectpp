@@ -16,26 +16,7 @@
                     <div class='col-2'></div>
                 </div>
         </header>
-        <section ng-controller='ImageController as image'>
-            <div class='row'>
-            <figure>
-                <div class='col-2'></div>
-                <a href="/single">
-                    <img class='col-8 main'ng-src={{urlOne}} alt="{{titleOne}}"/>
-                </a>
-                <div class='col-2'></div>
-            </figure>
-            </div>
-        </section>
-        <section>
-            <div class='row'>
-                <div class='col-3'></div>
-                <div class='col-2'><button class='artChange' data-style='Abstract' data-id='_id'>Style</button></div>
-                <div class='col-2 another'><button class='artChange' data-id='_id'>Another</button></div>
-                <div class='col-2'><button class='artChange' data-artist='Artist Name' data-id='_id' data-title-id='titleOne'>Artist</button></div>
-                <div class='col-3'></div>
-            </div>
-        </section>
+       <div ng-view></div>
         <footer class='col-12' ng-mouseenter="options=true" ng-mouseleave="options=false"><p class='copyW'>copyright information</p>
                 <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
                 Images of that type of artworks are prohibited for copying, printing, or any kind
@@ -45,7 +26,7 @@
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="javascripts/mainController.js"></script>
-    <script src="javascripts/tabMenu.js"></script>
 </body>
 </html>

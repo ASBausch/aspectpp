@@ -1,0 +1,58 @@
+ <section>
+            <div class='row'>
+                    <div class='col-1'></div>
+                    <div class="col-7">
+                        <img class='detailImg'ng-src={{url}} alt="{{title}}"/>
+                        <div class="singButtons">
+                        <button ng-click='onStyleClick()' class="artSingle styleBtn" type='button' value={{style}}>Style</button>
+                        <button class="artSingle anotherSing allNewBtn" value={{id}}>Another</button>
+                        <button class="artSingle artistBtn" value={{artist}}>Artist</button>
+                        </div>
+                    </div>
+            <div class="col-3">
+                <div class="tabs" ng-controller="TabController">
+                    <ul class="tab-links" ng-init="currentTab='tab1'">
+                        <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">Details</a></li>
+                        <li ng-class="{active: isActive('tab2')}"><a ng-click="onTabClick('tab2')">More Art</a></li>
+                        <li ng-class="{active: isActive('tab3')}"><a ng-click="onTabClick('tab3')">Bio</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab1" ng-show="isActive('tab1')" class="tab" ng-class="{active: isActive('tab1')}">
+                            <p>Title: {{title}}</p>
+                            <p>Style: {{style}}</p>
+                            <p>Date Completed: {{yearCompleted}}</p>
+                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain:{{publicDomain}}</p>
+                            <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
+                            displaying of the images of public domain artworks solely. We use here Copyright term based
+                            on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
+                            the duration of copyright term may differ.</p>
+                        </div>
+
+                        <div id="tab2" ng-show="isActive('tab2')" class="tab" ng-class="{active: isActive('tab2')}">
+                            <p>More by {{artist}}</p>
+                            <div class="byArtistWorks">
+                            <img class='thumb' ng-repeat="work in works" ng-if="work.url != url" ng-src={{work.url}} alt="{{work.title}}"/>
+                            </div>
+                            <div class="byStyle">
+                            <p>More in {{style}}</p>
+                            </div>
+                            <div class="byStyle">
+                            <img class='thumb' src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>
+                            <img class='thumb' src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>
+                            </div>
+                        </div>
+
+                        <div id="tab3" ng-show="isActive('tab3')" class="tab" ng-class="{active: isActive('tab3')}">
+                            <p>About this Work</p>
+
+                        </div>
+
+                </div>
+                </div>
+            </div>
+                <div class='col-1'></div>
+                </div>
+    </section>
+
+

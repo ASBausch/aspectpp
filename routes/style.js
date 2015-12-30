@@ -6,22 +6,13 @@ var router = express.Router();
 var path = require('path');
 var Art = require('../models/aspectarts');
 
-router.get('/', function(req, res, next) {
-    Art.find({}, {'styleOne': 1, 'urlOne': 1, 'urlTwo': 1, 'urlThree': 1}, function (err, aspectarts) {
+router.get('/:style', function(req, res, next) {
+
+    Art.find({'style': req.params.style}, function (err, aspectarts) {
         if (err) throw err;
         res.json(aspectarts);
     });
 });
-
-//something like this? 
-router.get('/:id', function(req, res, next) {
-    var currentPiece = req.params.id; 
-   if (currentPiece.styleOne == Art.find({},{'styleOne': 1})) { 
-   Art.find({}, {'styleOne': 1}, {"urlOne": 1, "urlTwo": 1, "urlThree": 1}, function (err, aspectarts) { 
-       if (err) throw err; 
-       res.json(aspectarts); 
-    }); 
- }});
 
 module.exports = router;
 

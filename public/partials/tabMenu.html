@@ -1,0 +1,42 @@
+<div class="col-3">
+    <div class="tabs">
+        <ul class="tab-links">
+            <li><a>Details</a></li>
+            <li><a>More Art</a></li>
+            <li><a>Bio</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab active">
+                <p>Title: {{title}}</p>
+                <p>Style: {{style}}</p>
+                <p>Date Completed: {{yearCompleted}}</p>
+                <p ng-mouseenter="display=true" ng-mouseleave="display=false">Public Domain:{{publicDomain}}</p>
+                <p ng-show="display">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
+                    displaying of the images of public domain artworks solely. We use here Copyright term based
+                    on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
+                    the duration of copyright term may differ.</p>
+            </div>
+
+            <div id="tab2" class="tab">
+                <p>More by {{artist}}</p>
+                <div class="byArtistWorks">
+                    <img class='thumb' ng-repeat="work in works" ng-if="work.url != url" ng-src={{work.url}} alt="{{work.title}}"/>
+                </div>
+                <div class="byStyle">
+                    <p>More in {{style}}</p>
+                </div>
+                <div class="byStyle">
+                    <img class='thumb' src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>
+                    <img class='thumb' src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>
+                </div>
+            </div>
+
+            <div id="tab3" class="tab">
+                <p>About this Work</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>

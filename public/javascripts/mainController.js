@@ -18,78 +18,88 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         method: 'GET',
         url: '/aspectarts'
     }).then(function(response) {
-        $scope.urlOne = response.data[1].urlOne;
-        $scope.titleOne = response.data[1].titleOne;
+        $scope.url = response.data[1].works[0].url;
+        $scope.title= response.data[1].works[0].title;
+        $scope.style = response.data[1].style;
+        $scope.artist = response.data[1].artist;
+        $scope.id = response.data[1]._id;
     });
 }]);
 
 
 //controller that retrieves details on art for tab page detail...
 
-angular.module('app').controller('ArtDetailController', function($scope, $http) {
+angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams, $route) {
+    var viewed = [];
     $http({
         method: 'GET',
         url: '/aspectarts'
     }).then(function(response) {
-        $scope.id = response.data[1]._id;
-        $scope.addArtist = response.data[1].addArtist;
-        $scope.styleOne = response.data[1].styleOne;
-        $scope.titleOne = response.data[1].titleOne;
-        $scope.yearOne = response.data[1].yearOne;
-        $scope.urlOne = response.data[1].urlOne;
-        $scope.publicDomainOne = response.data[1].publicDomainOne;
-        $scope.styleTwo = response.data[1].styleTwo;
-        $scope.titleTwo = response.data[1].titleTwo;
-        $scope.yearTwo = response.data[1].yearTwo;
-        $scope.urlTwo = response.data[1].urlTwo;
-        $scope.publicDomainTwo = response.data[1].publicDomainTwo;
-        $scope.styleThree = response.data[1].styleThree;
-        $scope.titleThree = response.data[1].titleThree;
-        $scope.yearThree = response.data[1].yearThree;
-        $scope.urlThree = response.data[1].urlThree;
-        $scope.publicDomainThree = response.data[1].publicDomainThree;
+        if (!response.data[$routeParams.id]) {
+            $route.updateParams({id:1});
+        }
+        $scope.id = response.data[$routeParams.id]._id;
+        $scope.artist = response.data[$routeParams.id].artist;
+        $scope.style = response.data[$routeParams.id].style;
+        $scope.title = response.data[$routeParams.id].works[0].title;
+        $scope.yearCompleted = response.data[$routeParams.id].works[0].yearCompleted;
+        $scope.url = response.data[$routeParams.id].works[0].url;
+        $scope.publicDomain = response.data[$routeParams.id].works[0].publicDomain;
+        $scope.works = response.data[$routeParams.id].works;
 
+        viewed.push($scope.id);
     });
+
+    $scope.onStyleClick = function(){
+        $http({
+            method: 'GET',
+            url: '/style/' + $scope.style
+        }).then(function(response) {
+            for (i=0; i< response.data.length; i++){
+                if (viewed.indexOf(response.data[i]._id) === -1) {
+                    $scope.id = response.data[i]._id;
+                    $scope.artist = response.data[i].artist;
+                    $scope.style = response.data[i].style;
+                    $scope.title = response.data[i].works[0].title;
+                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
+                    $scope.url = response.data[i].works[0].url;
+                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.works = response.data[i].works;
+
+                    viewed.push($scope.id);
+
+                    break;
+
+                }
+
+            }
+        })
+
+    }
 });
 
-//controller for Artist button on index/single page currently unsed
+//controller for tabs
 
-angular.module('app').controller('ArtIndexController', function($scope, $http) {
-    $http({
-        method: 'GET',
-        url: '/aspectarts'
-    }).then(function(response) {
-        $scope.addArtist = response.data[1].addArtist;
-        $scope.urlTwo = response.data[1].urlTwo;
-        $scope.id = response.data[1]._id;
-    });
+angular.module('app').controller('TabController', function ($scope){
+    $scope.currentTab = null;
+    $scope.onTabClick = function(id) {
+        $scope.currentTab = id;
+    };
+    $scope.isActive = function(id) {
+        return $scope.currentTab === id;
+    };
 });
 
-//controller for Style button on index/single page currently unused
 
-angular.module('app').controller('artStyleCntrl', function($scope, $http) {
-    $http({
-        method: 'GET',
-        url: '/style'
-    }).then(function(response) {
-        $scope.urlOne = response.data[0].urlOne;
-        $scope.urlTwo = response.data[2].urlTwo;
+app.config(['$routeProvider', function($routeProvider){
+    $routeProvider.when('/', {
+        templateUrl: '/partials/mainImage.html',
+        controller: 'ImageController'
+    }).when('/single/:id', {
+        templateUrl: '/partials/single.html',
+        controller: 'ArtDetailController'
     });
-});
-
-//set up start for angular routing? may not be used?
-
-//app.config(['$routeProvider', function($routeProvider){
-//    $routeProvider.when('/', {
-//        templateUrl: '/index.html',
-//        controller: 'MainController' and or artIndexControl for artist button, artStyleControl for style button
-//                      , artDetailControl for new piece button
-//    }).when('/single', {
-//        templateUrl: '/single.html',
-//        controller: 'artDetailCntrl' and or MenuController and artIndexControl for artist button, artStyleControl for style button
-//                      , artDetailControl for new piece button
-//    });
-//}]);
+}]);
 
 
 
