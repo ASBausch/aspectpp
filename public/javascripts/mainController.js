@@ -23,11 +23,17 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         //is determined by the data values setting the scope
         //in this instance it is coded to one particular image/artist data
     }).then(function(response) {
-        $scope.url = response.data[1].works[0].url;
-        $scope.title= response.data[1].works[0].title;
-        $scope.style = response.data[1].style;
-        $scope.artist = response.data[1].artist;
-        $scope.id = response.data[1]._id;
+        var max = response.data.length;
+        var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
+        $scope.url = response.data[randomIndex].works[0].url;
+        $scope.title= response.data[randomIndex].works[0].title;
+        $scope.style = response.data[randomIndex].style;
+        $scope.artist = response.data[randomIndex].artist;
+        $scope.id = response.data[randomIndex]._id;
+        $scope.loc = randomIndex;
+        console.log($scope.id);
+        console.log($scope.title);
+        console.log($scope.loc);
     });
 
     //search /view change via 'another' button which will change the current piece to one
@@ -46,6 +52,9 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
             $scope.loc = randomIndex;
+            console.log($scope.id);
+            console.log($scope.title);
+            console.log($scope.loc);
         });
     };
     //search /view change via 'artist' button which will change the current piece to one
@@ -96,9 +105,9 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     }).then(function(response) {
         //in this case id is the index number of the aspectarts data array
         //if the response data doesn't match it is automatically rerouted to index 1
-        if (!response.data[$routeParams.id]) {
-            $route.updateParams({id:1});
-        }
+        //if (!response.data[$routeParams.id]) {
+        //    $route.updateParams({id:1});
+        //}
         //all of the scope properties are set by the routeparams id this will be 1
         //upon first entry to the page but will update with button clicks
         //the nested works arrays need to be looped through to be set
@@ -127,6 +136,8 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
             $scope.works = response.data[randomIndex].works;
+            $scope.publicDomain = response.data[randomIndex].works[0].publicDomain;
+            $scope.yearCompleted = response.data[randomIndex].works[0].yearCompleted;
             $scope.loc = randomIndex;
 
             console.log()
@@ -144,6 +155,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             //we loop through our response and reset the value of the scop
             //objects with the new data from our search, angular automatically
             //reads this new data without refresh
+
             for (var i=0; i< response.data.length; i++){
 
                 var id = response.data[i]._id;
