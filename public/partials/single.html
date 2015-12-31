@@ -31,16 +31,9 @@
                         </div>
 
                         <div id="tab2" ng-show="isActive('tab2')" class="tab" ng-class="{active: isActive('tab2')}">
-                            <p>More by {{artist}}</p>
+                            <p>More by {{artist}} in {{style}}</p>
                             <div class="byArtistWorks">
                             <img class='thumb' ng-repeat="work in works" ng-if="work.url != url" ng-src={{work.url}} alt="{{work.title}}"/>
-                            </div>
-                            <div class="byStyle">
-                            <p>More in {{style}}</p>
-                            </div>
-                            <div class="byStyle">
-                            <img class='thumb' src="http://uploads2.wikiart.org/images/marc-vaux/untitled-1997.jpg" alt="Image of Untitled"/>
-                            <img class='thumb' src="http://uploads2.wikiart.org/images/nasreen-mohamedi/untitled-1970-3.jpg" alt="Image of Untitled"/>
                             </div>
                         </div>
 

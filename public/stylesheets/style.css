@@ -12,6 +12,11 @@ p {
   font-size: 12px;
 }
 
+a {
+  text-decoration: none;
+  color: #6F6057;
+}
+
 footer {
   background-color: #FEFBF7;
 }

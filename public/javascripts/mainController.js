@@ -36,6 +36,40 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         console.log($scope.loc);
     });
 
+    $scope.onStyleClick = function(){
+        $http({
+            method: 'GET',
+            //the url knows what the current style is because it is
+            //set in $scope.style we concat it here so that the url
+            //has the correct params to search by in the node route
+            url: '/style/' + $scope.style
+        }).then(function(response) {
+            //we loop through our response and reset the value of the scop
+            //objects with the new data from our search, angular automatically
+            //reads this new data without refresh
+            console.log('I clicked before the loop')
+            for (var i=0; i< response.data.length; i++){
+
+                var id = response.data[i]._id;
+            console.log(id);
+                if (viewed.indexOf(id) === -1) {
+                    $scope.id = response.data[i]._id;
+                    $scope.artist = response.data[i].artist;
+                    $scope.style = response.data[i].style;
+                    $scope.title = response.data[i].works[0].title;
+                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
+                    $scope.url = response.data[i].works[0].url;
+                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.works = response.data[i].works;
+
+                    viewed.push($scope.id);
+                console.log($scope.artist);
+                    break;
+                }
+            }
+        });
+    };
+
     //search /view change via 'another' button which will change the current piece to one
     //completely different, the index will be chosen via a random number generator with a
     //max of the length of the aspectarts array
@@ -75,23 +109,19 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[0].title;
-                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
-                    $scope.url = response.data[i].works[0].url;
-                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.title = response.data[i].works[1].title;
+                    $scope.yearCompleted = response.data[i].works[1].yearCompleted;
+                    $scope.url = response.data[i].works[1].url;
+                    $scope.publicDomain = response.data[i].works[1].publicDomain;
                     $scope.works = response.data[i].works;
-
-
 
                     viewed.push($scope.id);
 
                     break;
                 }
             }
-
         });
     }
-
 }]);
 
 
@@ -105,9 +135,9 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     }).then(function(response) {
         //in this case id is the index number of the aspectarts data array
         //if the response data doesn't match it is automatically rerouted to index 1
-        //if (!response.data[$routeParams.id]) {
-        //    $route.updateParams({id:1});
-        //}
+        if (!response.data[$routeParams.id]) {
+            $route.updateParams({id:1});
+        }
         //all of the scope properties are set by the routeparams id this will be 1
         //upon first entry to the page but will update with button clicks
         //the nested works arrays need to be looped through to be set
@@ -141,6 +171,35 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.loc = randomIndex;
 
             console.log()
+        });
+    };
+
+    $scope.onArtistClick = function (){
+        $http({
+            method: 'GET',
+            url: '/artist/' + $scope.artist
+        }).then(function(response){
+            for (var i=0; i< response.data.length; i++) {
+
+                var index = response.data[i]._id;
+                console.log(index);
+
+                if (viewed.indexOf(index) === -1) {
+
+                    $scope.id = response.data[i]._id;
+                    $scope.artist = response.data[i].artist;
+                    $scope.style = response.data[i].style;
+                    $scope.title = response.data[i].works[1].title;
+                    $scope.yearCompleted = response.data[i].works[1].yearCompleted;
+                    $scope.url = response.data[i].works[1].url;
+                    $scope.publicDomain = response.data[i].works[1].publicDomain;
+                    $scope.works = response.data[i].works;
+
+                    viewed.push($scope.id);
+
+                    break;
+                }
+            }
         });
     };
 
