@@ -14,7 +14,7 @@ angular.module('app').controller("MainController", function(){
 //controller for main art on index page currently hard coded to be the piece I want to
 //start with, the scope and http methods of angular are required here
 
-angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http, $routeParams, $route ){
+angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http){
     var viewed = [];
     $http({
         method: 'GET',
@@ -25,14 +25,15 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     }).then(function(response) {
         var max = response.data.length;
         var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
-        $scope.url = response.data[randomIndex].works[0].url;
-        $scope.title= response.data[randomIndex].works[0].title;
+        var maxWorks = 2;
+        var randomWorks = Math.floor(Math.random() * (maxWorks + 1));
+        $scope.workNumber = randomWorks;
+        $scope.url = response.data[randomIndex].works[randomWorks].url;
+        $scope.title= response.data[randomIndex].works[randomWorks].title;
         $scope.style = response.data[randomIndex].style;
         $scope.artist = response.data[randomIndex].artist;
         $scope.id = response.data[randomIndex]._id;
-        console.log($scope.id);
-        console.log($scope.title);
-        console.log($scope.loc);
+        console.log(randomWorks);
     });
 
     $scope.onStyleClick = function(){
@@ -55,10 +56,10 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[0].title;
-                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
-                    $scope.url = response.data[i].works[0].url;
-                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.title = response.data[i].works[$scope.workNumber].title;
+                    $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                    $scope.url = response.data[i].works[$scope.workNumber].url;
+                    $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                     $scope.works = response.data[i].works;
 
 
@@ -81,8 +82,12 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         }).then(function(response){
             var max = response.data.length;
             var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
-            $scope.url = response.data[randomIndex].works[0].url;
-            $scope.title= response.data[randomIndex].works[0].title;
+            var maxWorks = 2;
+            var randomWorks = Math.floor(Math.random() * (maxWorks + 1));
+
+            $scope.workNumber = randomWorks;
+            $scope.url = response.data[randomIndex].works[randomWorks].url;
+            $scope.title= response.data[randomIndex].works[randomWorks].title;
             $scope.style = response.data[randomIndex].style;
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
@@ -96,6 +101,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     //a different one of the same artist, the artist will be based on the currently
     //viewed piece set in $scope.artist
     $scope.onArtistClick = function (){
+        console.log('I click');
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
@@ -105,21 +111,33 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                 var index = response.data[i]._id;
                 console.log(index);
 
-                if (viewed.indexOf(index) === -1) {
+                //if (viewed.indexOf(index) === -1) {
+                $scope.id = response.data[i]._id;
+                $scope.artist = response.data[i].artist;
+                $scope.style = response.data[i].style;
+                $scope.works = response.data[i].works;
 
-                    $scope.id = response.data[i]._id;
-                    $scope.artist = response.data[i].artist;
-                    $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[1].title;
-                    $scope.yearCompleted = response.data[i].works[1].yearCompleted;
-                    $scope.url = response.data[i].works[1].url;
-                    $scope.publicDomain = response.data[i].works[1].publicDomain;
-                    $scope.works = response.data[i].works;
+                var artNumber;
 
-                    viewed.push($scope.id);
-
-                    break;
+                if ($scope.workNumber <2 ) {
+                    artNumber = $scope.workNumber + 1;
+                } else {
+                    artNumber = 0
                 }
+
+                $scope.workNumber = artNumber;
+                $scope.title = response.data[i].works[$scope.workNumber].title;
+                $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                $scope.url = response.data[i].works[$scope.workNumber].url;
+                $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+
+                //viewed.push($scope.id);
+
+                console.log($scope.workNumber);
+                console.log('one click');
+
+                //break;
+
             }
         });
     }
