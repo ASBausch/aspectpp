@@ -27,13 +27,14 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
         var maxWorks = 2;
         var randomWorks = Math.floor(Math.random() * (maxWorks + 1));
+
         $scope.workNumber = randomWorks;
         $scope.url = response.data[randomIndex].works[randomWorks].url;
         $scope.title= response.data[randomIndex].works[randomWorks].title;
         $scope.style = response.data[randomIndex].style;
         $scope.artist = response.data[randomIndex].artist;
         $scope.id = response.data[randomIndex]._id;
-        console.log(randomWorks);
+
     });
 
     $scope.onStyleClick = function(){
@@ -47,11 +48,11 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             //we loop through our response and reset the value of the scop
             //objects with the new data from our search, angular automatically
             //reads this new data without refresh
-            console.log('I clicked before the loop')
+
             for (var i=0; i< response.data.length; i++){
 
                 var id = response.data[i]._id;
-            console.log(id);
+
                 if (viewed.indexOf(id) === -1) {
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
@@ -64,8 +65,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
 
                     viewed.push($scope.id);
-                    console.log($scope.id + "button click");
-                    console.log($scope.title + "button c");
+
                     break;
                 }
             }
@@ -101,17 +101,13 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     //a different one of the same artist, the artist will be based on the currently
     //viewed piece set in $scope.artist
     $scope.onArtistClick = function (){
-        console.log('I click');
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
 
-                var index = response.data[i]._id;
-                console.log(index);
 
-                //if (viewed.indexOf(index) === -1) {
                 $scope.id = response.data[i]._id;
                 $scope.artist = response.data[i].artist;
                 $scope.style = response.data[i].style;
@@ -130,13 +126,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                 $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-
-                //viewed.push($scope.id);
-
-                console.log($scope.workNumber);
-                console.log('one click');
-
-                //break;
 
             }
         });
@@ -193,31 +182,32 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     };
 
     $scope.onArtistClick = function (){
-
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
 
-                var index = response.data[i]._id;
-                console.log(index);
 
-                if (viewed.indexOf(index) === -1) {
+                $scope.id = response.data[i]._id;
+                $scope.artist = response.data[i].artist;
+                $scope.style = response.data[i].style;
+                $scope.works = response.data[i].works;
 
-                    $scope.id = response.data[i]._id;
-                    $scope.artist = response.data[i].artist;
-                    $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[1].title;
-                    $scope.yearCompleted = response.data[i].works[1].yearCompleted;
-                    $scope.url = response.data[i].works[1].url;
-                    $scope.publicDomain = response.data[i].works[1].publicDomain;
-                    $scope.works = response.data[i].works;
+                var artNumber;
 
-                    viewed.push($scope.id);
-
-                    break;
+                if ($scope.workNumber <2 ) {
+                    artNumber = $scope.workNumber + 1;
+                } else {
+                    artNumber = 0
                 }
+
+                $scope.workNumber = artNumber;
+                $scope.title = response.data[i].works[$scope.workNumber].title;
+                $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                $scope.url = response.data[i].works[$scope.workNumber].url;
+                $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+
             }
         });
     };
