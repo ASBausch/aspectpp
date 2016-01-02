@@ -92,9 +92,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
             $scope.loc = randomIndex;
-            console.log($scope.id);
-            console.log($scope.title);
-            console.log($scope.loc);
+
         });
     };
     //search /view change via 'artist' button which will change the current piece to one
@@ -144,17 +142,18 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         url: '/detailPage/'+ $routeParams.id
     }).then(function(response) {
 
-        console.log(response.data);
         //all of the scope properties are set by the routeparams id this will be
         //upon first entry to the page but will update with button clicks
         //the nested works arrays need to be looped through to be set
+
+        $scope.workNumber = $routeParams.workNumber;
         $scope.id = response.data[0]._id;
         $scope.artist = response.data[0].artist;
         $scope.style = response.data[0].style;
-        $scope.title = response.data[0].works[0].title;
-        $scope.yearCompleted = response.data[0].works[0].yearCompleted;
-        $scope.url = response.data[0].works[0].url;
-        $scope.publicDomain = response.data[0].works[0].publicDomain;
+        $scope.title = response.data[0].works[$scope.workNumber].title;
+        $scope.yearCompleted = response.data[0].works[$scope.workNumber].yearCompleted;
+        $scope.url = response.data[0].works[$scope.workNumber].url;
+        $scope.publicDomain = response.data[0].works[$scope.workNumber].publicDomain;
         $scope.works = response.data[0].works;
 
         viewed.push($scope.id);
@@ -278,7 +277,7 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/', {
         templateUrl: '/partials/mainImage.html',
         controller: 'ImageController'
-    }).when('/single/:id', {
+    }).when('/single/:id/:workNumber', {
         templateUrl: '/partials/single.html',
         controller: 'ArtDetailController'
     });
