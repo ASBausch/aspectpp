@@ -34,7 +34,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         $scope.style = response.data[randomIndex].style;
         $scope.artist = response.data[randomIndex].artist;
         $scope.id = response.data[randomIndex]._id;
-
     });
 
     $scope.onStyleClick = function(){
@@ -61,8 +60,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                     $scope.url = response.data[i].works[$scope.workNumber].url;
                     $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-                    $scope.works = response.data[i].works;
-
 
                     viewed.push($scope.id);
 
@@ -91,8 +88,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             $scope.style = response.data[randomIndex].style;
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
-            $scope.loc = randomIndex;
-
         });
     };
     //search /view change via 'artist' button which will change the current piece to one
@@ -105,11 +100,9 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
 
-
                 $scope.id = response.data[i]._id;
                 $scope.artist = response.data[i].artist;
                 $scope.style = response.data[i].style;
-                $scope.works = response.data[i].works;
 
                 var artNumber;
 
@@ -124,7 +117,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                 $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-
             }
         });
     }
@@ -171,12 +163,9 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.style = response.data[randomIndex].style;
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
-            $scope.works = response.data[randomIndex].works;
             $scope.publicDomain = response.data[randomIndex].works[0].publicDomain;
             $scope.yearCompleted = response.data[randomIndex].works[0].yearCompleted;
-            $scope.loc = randomIndex;
-
-            console.log()
+            $scope.works = response.data[randomIndex].works;
         });
     };
 
@@ -187,11 +176,9 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
 
-
                 $scope.id = response.data[i]._id;
                 $scope.artist = response.data[i].artist;
                 $scope.style = response.data[i].style;
-                $scope.works = response.data[i].works;
 
                 var artNumber;
 
@@ -200,13 +187,12 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                 } else {
                     artNumber = 0
                 }
-
                 $scope.workNumber = artNumber;
                 $scope.title = response.data[i].works[$scope.workNumber].title;
                 $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-
+                $scope.works = response.data[i].works;
             }
         });
     };
