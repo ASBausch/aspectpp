@@ -2,7 +2,7 @@
             <div class='row'>
                     <div class='col-1'></div>
                     <div class="col-7">
-                        <img class='detailImg'ng-src={{url}} alt="{{title}}"/>
+                        <img class='detailImg' ng-src={{url}} alt="{{title}}"/>
                         <div class="singButtons">
                         <button ng-click='onStyleClick()' class="artSingle styleBtn" type='button'>Style</button>
                         <button ng-click='onAnotherClick()' class="artSingle anotherSing allNewBtn">Another</button>
@@ -12,9 +12,9 @@
             <div class="col-3">
                 <div class="tabs" ng-controller="TabController">
                     <ul class="tab-links" ng-init="currentTab='tab1'">
-                        <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">Details</a></li>
-                        <li ng-class="{active: isActive('tab2')}"><a ng-click="onTabClick('tab2')">More Art</a></li>
-                        <li ng-class="{active: isActive('tab3')}"><a ng-click="onTabClick('tab3')">Bio</a></li>
+                        <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">About</a></li>
+                        <li ng-class="{active: isActive('tab2')}"><a ng-click="onTabClick('tab2')">More</a></li>
+                        <li ng-class="{active: isActive('tab3')}"><a ng-click="onTabClick('tab3')">Style</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -38,8 +38,158 @@
                         </div>
 
                         <div id="tab3" ng-show="isActive('tab3')" class="tab" ng-class="{active: isActive('tab3')}">
-                            <p>About this Work</p>
+                            <p>About {{style}}</p>
 
+                            <div ng-switch='style'>
+                                <div ng-switch-when='Abstract Art'><p>A trend in painting and sculpture in the twentieth century.
+                                    Abstract art seeks to break away from traditional representation of physical objects.
+                                    It explores the relationships of forms and colors, whereas more traditional art represents the
+                                    world in recognizable images.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">abstract-art.Dictionary.com.
+                                        The American Heritage® New Dictionary of Cultural Literacy, Third Edition.Houghton Mifflin Company, 2005.
+                                        http://dictionary.reference.com/browse/abstract-art
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+
+                                <div ng-switch-when='Abstract Expressionism'><p>A movement in experimental, nonrepresentational painting
+                                    originating in the U.S. in the 1940s, with sources in earlier movements, and embracing many individual
+                                    styles marked in common by freedom of technique, a preference for dramatically large canvases, and a
+                                    desire to give spontaneous expression to the unconscious.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">abstract-expressionism.Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc
+                                        http://dictionary.reference.com/browse/abstract-expressionism
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+
+                                <div ng-switch-when='Art Nouveau'><p>A style of fine and applied art current in the late 19th and early 20th
+                                    centuries, characterized chiefly by curvilinear motifs often derived from natural forms.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">art-nouveau.Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc.
+                                        http://dictionary.reference.com/browse/art-nouveau
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+                                <div ng-switch-when='Baroque'><p>A style of architecture and art originating in Italy in the early 17th century
+                                    and variously prevalent in Europe and the New World for a century and a half, characterized by free and sculptural
+                                    use of the classical orders and ornament, by forms in elevation and plan suggesting movement, and by dramatic effect
+                                    in which architecture, painting, sculpture, and the decorative arts often worked to combined effect.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">baroque. Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc.
+                                        http://dictionary.reference.com/browse/baroque
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+
+                                <div ng-switch-when='Conceptual Art'><p>Art in which emphasis is placed on the means and processes of producing art
+                                    objects rather than on the objects themselves and in which the various tools and techniques, as photographs,
+                                    photocopies, video records, and the construction of environments and earthworks, are used to convey the message
+                                    to the spectator.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">conceptual-art. Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc.
+                                        http://dictionary.reference.com/browse/conceptual-art
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+
+                                <div ng-switch-when='Cubism'><p>A style of painting and sculpture developed in the early 20th century, characterized
+                                    chiefly by an emphasis on formal structure, the reduction of natural forms to their geometrical equivalents, and
+                                    the organization of the planes of a represented object independently of representational requirements.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">cubism. Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc.
+                                        http://dictionary.reference.com/browse/cubism
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+
+                                <div ng-switch-when='Early Renaissance'><p>A style of art developed principally in Florence, Italy, during the 15th
+                                    century and characterized chiefly by the development of linear perspective, chiaroscuro, and geometrically based
+                                    compositions.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">early-renaissance. Dictionary.com.
+                                        Collins English Dictionary - Complete & Unabridged 10th Edition. HarperCollins Publishers.
+                                        http://dictionary.reference.com/browse/early-renaissance
+                                        (accessed: January 01, 2016).
+                                    </p>
+                                </div>
+
+                                <div ng-switch-when='Expressionism'><p>A style of art developed in the 20th century, characterized chiefly by heavy,
+                                    often black lines that define forms, sharply contrasting, often vivid colors, and subjective or symbolic treatment
+                                    of thematic material. A manner of painting, drawing, sculpting, etc., in which forms derived from nature are distorted
+                                    or exaggerated and colors are intensified for emotive or expressive purposes.</p>
+                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
+                                    <p class="citation" ng-show="options">expressionism. Dictionary.com.
+                                        Dictionary.com Unabridged. Random House, Inc.
+                                        http://dictionary.reference.com/browse/expressionism
+                                        (accessed: January 01, 2016).</p>
+                                </div>
+                                
+                                <div ng-switch-when='High Renaissance'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Impressionism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Mannerism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Neoclassicism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Neo-Expressionism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Northern Renaissance'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Photo Realism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Pop Art'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Post Impressionism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Primitivism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Realism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Rococo'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Romanticism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Street Art'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Surrealism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                                <div ng-switch-when='Symbolism'> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p><p class="citation" ng-show="options">abstract-expressionism.
+                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
+                                    http://dictionary.reference.com/browse/abstract-expressionism
+                                    (accessed: January 01, 2016).</p></div>
+                            </div>
                         </div>
 
                 </div>

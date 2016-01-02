@@ -223,6 +223,10 @@ li.active a, li.active a:hover {
   display:block;
 }
 
+.citation {
+  font-size: 8px;
+}
+
 
 
 

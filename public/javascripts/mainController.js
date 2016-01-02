@@ -136,7 +136,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
         //all of the scope properties are set by the routeparams id this will be
         //upon first entry to the page but will update with button clicks
-        //the nested works arrays need to be looped through to be set
 
         $scope.workNumber = $routeParams.workNumber;
         $scope.id = response.data[0]._id;
@@ -225,6 +224,8 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
                     viewed.push($scope.id);
 
+                    console.log($scope.style);
+
                     break;
                 }
             }
@@ -237,7 +238,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
 angular.module('app').controller('TabController', function ($scope){
     $scope.currentTab = null;
-
     //setting these functions as part of the scope makes the function available
     //to process in-line via ng-click
     //onTabClick sets the current tab to the id of the tab that was clicked
@@ -252,7 +252,6 @@ angular.module('app').controller('TabController', function ($scope){
         return $scope.currentTab === id;
     };
 });
-
 
 
 //route providers allow partials to be viewed via ng-view
