@@ -16,6 +16,8 @@ var style = require('./routes/style');
 
 var artist = require('./routes/artist');
 
+var detailPage = require('./routes/detailPage')
+
 //
 var Art = require('./models/aspectarts');
 var aspectarts = require('./routes/aspectarts');
@@ -47,6 +49,8 @@ app.use('/aspectarts', aspectarts);
 app.use('/style', style);
 
 app.use('/artist', artist);
+
+app.use('/detailPage', detailPage);
 
 // Bring Mongoose into the app
 var mongoose = require( 'mongoose' );

@@ -30,7 +30,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         $scope.style = response.data[randomIndex].style;
         $scope.artist = response.data[randomIndex].artist;
         $scope.id = response.data[randomIndex]._id;
-        $scope.loc = randomIndex;
         console.log($scope.id);
         console.log($scope.title);
         console.log($scope.loc);
@@ -62,8 +61,10 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.publicDomain = response.data[i].works[0].publicDomain;
                     $scope.works = response.data[i].works;
 
+
                     viewed.push($scope.id);
-                console.log($scope.artist);
+                    console.log($scope.id + "button click");
+                    console.log($scope.title + "button c");
                     break;
                 }
             }
@@ -126,29 +127,28 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
 
 //controller that retrieves details on art for tab page detail...
+//routeParams.id assures that the id of the current piece is pulled from the url
+//when it was passed from the single page.
 
 angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams, $route) {
     var viewed = [];
     $http({
         method: 'GET',
-        url: '/aspectarts'
+        url: '/detailPage/'+ $routeParams.id
     }).then(function(response) {
-        //in this case id is the index number of the aspectarts data array
-        //if the response data doesn't match it is automatically rerouted to index 1
-        if (!response.data[$routeParams.id]) {
-            $route.updateParams({id:1});
-        }
-        //all of the scope properties are set by the routeparams id this will be 1
+
+        console.log(response.data);
+        //all of the scope properties are set by the routeparams id this will be
         //upon first entry to the page but will update with button clicks
         //the nested works arrays need to be looped through to be set
-        $scope.id = response.data[$routeParams.id]._id;
-        $scope.artist = response.data[$routeParams.id].artist;
-        $scope.style = response.data[$routeParams.id].style;
-        $scope.title = response.data[$routeParams.id].works[0].title;
-        $scope.yearCompleted = response.data[$routeParams.id].works[0].yearCompleted;
-        $scope.url = response.data[$routeParams.id].works[0].url;
-        $scope.publicDomain = response.data[$routeParams.id].works[0].publicDomain;
-        $scope.works = response.data[$routeParams.id].works;
+        $scope.id = response.data[0]._id;
+        $scope.artist = response.data[0].artist;
+        $scope.style = response.data[0].style;
+        $scope.title = response.data[0].works[0].title;
+        $scope.yearCompleted = response.data[0].works[0].yearCompleted;
+        $scope.url = response.data[0].works[0].url;
+        $scope.publicDomain = response.data[0].works[0].publicDomain;
+        $scope.works = response.data[0].works;
 
         viewed.push($scope.id);
     });
@@ -175,6 +175,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     };
 
     $scope.onArtistClick = function (){
+
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
