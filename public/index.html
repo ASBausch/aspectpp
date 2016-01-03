@@ -17,11 +17,15 @@
                 </div>
         </header>
        <div ng-view></div>
-        <footer class='col-12' ng-mouseenter="options=true" ng-mouseleave="options=false"><p class='copyW'>copyright information</p>
-                <p ng-show="options">Artworks protected by copyright are supposed to be used only for contemplation.
-                Images of that type of artworks are prohibited for copying, printing, or any kind
-                of reproducing and communicating to public since these activities may be considered
-                copyright infringement.</p>
+        <footer class='col-12' ng-mouseenter="optionsCW=true" ng-mouseleave="optionsCW=false"><p class='copyW'>copyright information</p>
+                <p class ='copyW' ng-show="optionsCW">
+                    Artworks protected by copyright are supposed to be used only for
+                    <br>
+                    contemplation. Images of that type of artworks are prohibited
+                    <br>
+                    for copying, printing, or any kind of reproducing and communicating
+                    <br>
+                    to public since these activities may be considered copyright infringement.</p>
         </footer>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>

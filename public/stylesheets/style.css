@@ -72,6 +72,17 @@ footer {
 
 /* buttons */
 
+.buttonDetail {
+  text-align: center;
+  background-color: #6F6058;
+  color: #FEFBF7;
+}
+
+.buttonExplain {
+  text-align: center;
+  color: #6F6058
+}
+
 .artChange {
   width: 40%;
   margin: auto;
