@@ -1,7 +1,7 @@
 /**
  * Created by manadab on 12/20/15.
  */
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate']);
 
 
 //main controller for title
