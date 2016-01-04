@@ -57,9 +57,9 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
                     $scope.title = response.data[i].works[$scope.workNumber].title;
-                    $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                     $scope.url = response.data[i].works[$scope.workNumber].url;
-                    $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+                    //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
 
                     viewed.push($scope.id);
 
@@ -103,6 +103,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                 $scope.id = response.data[i]._id;
                 $scope.artist = response.data[i].artist;
                 $scope.style = response.data[i].style;
+                //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
 
                 var artNumber;
 
@@ -114,12 +115,13 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
                 $scope.workNumber = artNumber;
                 $scope.title = response.data[i].works[$scope.workNumber].title;
-                $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
-                $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+
             }
         });
     }
+
 }]);
 
 
@@ -147,6 +149,12 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         $scope.publicDomain = response.data[0].works[$scope.workNumber].publicDomain;
         $scope.works = response.data[0].works;
 
+        if ($scope.publicDomain = true){
+            $scope.publicDomain = 'Yes'
+        } else {
+            $scope.publicDomain = 'No'
+        }
+
         viewed.push($scope.id);
     });
 
@@ -157,6 +165,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         }).then(function(response){
             var max = response.data.length;
             var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
+
             $scope.url = response.data[randomIndex].works[0].url;
             $scope.title= response.data[randomIndex].works[0].title;
             $scope.style = response.data[randomIndex].style;
@@ -165,6 +174,13 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.publicDomain = response.data[randomIndex].works[0].publicDomain;
             $scope.yearCompleted = response.data[randomIndex].works[0].yearCompleted;
             $scope.works = response.data[randomIndex].works;
+
+            if ($scope.publicDomain = true){
+                $scope.publicDomain = 'Yes'
+            } else {
+                $scope.publicDomain = 'No'
+            }
+
         });
     };
 
@@ -192,6 +208,13 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                 $scope.url = response.data[i].works[$scope.workNumber].url;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                 $scope.works = response.data[i].works;
+
+                if ($scope.publicDomain = true){
+                    $scope.publicDomain = 'Yes'
+                } else {
+                    $scope.publicDomain = 'No'
+                }
+
             }
         });
     };
@@ -223,6 +246,12 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     $scope.works = response.data[i].works;
 
                     viewed.push($scope.id);
+
+                    if ($scope.publicDomain = true){
+                        $scope.publicDomain = 'Yes'
+                    } else {
+                        $scope.publicDomain = 'No'
+                    }
 
                     console.log($scope.style);
 
