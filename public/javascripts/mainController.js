@@ -1,7 +1,7 @@
 /**
  * Created by manadab on 12/20/15.
  */
-var app = angular.module('app', ['ngRoute', 'ngAnimate']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ngclipboard']);
 
 
 //main controller for title
@@ -11,7 +11,7 @@ angular.module('app').controller("MainController", function(){
     vm.title = 'Aspect';
 });
 
-//controller for main art on index page currently hard coded to be the piece I want to
+//controller for main art on index page currently a random work  to
 //start with, the scope and http methods of angular are required here
 
 angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http){
@@ -34,6 +34,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         $scope.style = response.data[randomIndex].style;
         $scope.artist = response.data[randomIndex].artist;
         $scope.id = response.data[randomIndex]._id;
+
     });
 
     $scope.onStyleClick = function(){
@@ -57,10 +58,9 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
                     $scope.title = response.data[i].works[$scope.workNumber].title;
-                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                     $scope.url = response.data[i].works[$scope.workNumber].url;
+                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                     //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-
                     viewed.push($scope.id);
 
                     break;
@@ -88,6 +88,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             $scope.style = response.data[randomIndex].style;
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
+
         });
     };
     //search /view change via 'artist' button which will change the current piece to one
@@ -129,7 +130,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 //routeParams.id assures that the id of the current piece is pulled from the url
 //when it was passed from the single page.
 
-angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams, $route) {
+angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams, $location) {
     var viewed = [];
     $http({
         method: 'GET',
@@ -165,6 +166,10 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         }).then(function(response){
             var max = response.data.length;
             var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
+            var maxWorks = 2;
+            var randomWorks = Math.floor(Math.random() * (maxWorks + 1));
+
+            $scope.workNumber = randomWorks;
 
             $scope.url = response.data[randomIndex].works[0].url;
             $scope.title= response.data[randomIndex].works[0].title;
@@ -175,12 +180,12 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.yearCompleted = response.data[randomIndex].works[0].yearCompleted;
             $scope.works = response.data[randomIndex].works;
 
+
             if ($scope.publicDomain = true){
                 $scope.publicDomain = 'Yes'
             } else {
                 $scope.publicDomain = 'No'
             }
-
         });
     };
 
@@ -226,10 +231,13 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             //set in $scope.style we concat it here so that the url
             //has the correct params to search by in the node route
             url: '/style/' + $scope.style
+
         }).then(function(response) {
             //we loop through our response and reset the value of the scop
             //objects with the new data from our search, angular automatically
-            //reads this new data without refresh
+            //reads this new data without
+
+            console.log('I clicked');
 
             for (var i=0; i< response.data.length; i++){
 
@@ -239,10 +247,10 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[0].title;
-                    $scope.yearCompleted = response.data[i].works[0].yearCompleted;
-                    $scope.url = response.data[i].works[0].url;
-                    $scope.publicDomain = response.data[i].works[0].publicDomain;
+                    $scope.title = response.data[i].works[$scope.workNumber].title;
+                    $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                    $scope.url = response.data[i].works[$scope.workNumber].url;
+                    $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                     $scope.works = response.data[i].works;
 
                     viewed.push($scope.id);
@@ -296,6 +304,10 @@ app.config(['$routeProvider', function($routeProvider){
         controller: 'ArtDetailController'
     });
 }]);
+
+
+
+
 
 
 
