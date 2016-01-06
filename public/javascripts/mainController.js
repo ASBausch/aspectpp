@@ -171,13 +171,13 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
             $scope.workNumber = randomWorks;
 
-            $scope.url = response.data[randomIndex].works[0].url;
-            $scope.title= response.data[randomIndex].works[0].title;
+            $scope.url = response.data[randomIndex].works[randomWorks].url;
+            $scope.title= response.data[randomIndex].works[randomWorks].title;
             $scope.style = response.data[randomIndex].style;
             $scope.artist = response.data[randomIndex].artist;
             $scope.id = response.data[randomIndex]._id;
-            $scope.publicDomain = response.data[randomIndex].works[0].publicDomain;
-            $scope.yearCompleted = response.data[randomIndex].works[0].yearCompleted;
+            $scope.publicDomain = response.data[randomIndex].works[randomWorks].publicDomain;
+            $scope.yearCompleted = response.data[randomIndex].works[randomWorks].yearCompleted;
             $scope.works = response.data[randomIndex].works;
 
 
