@@ -4,9 +4,10 @@
                     <div class="col-7 col-m-12">
                         <img class='detailImg' ng-src={{url}} alt="{{title}}"/>
                         <div class="singButtons">
-                        <button ng-click='onStyleClick()' class="artSingle styleBtn" type='button'>Style</button>
+                        <button ng-click='onStyleClick()' class="artSingle styleBtn">Style</button>
                         <button ng-click='onAnotherClick()' class="artSingle anotherSing allNewBtn">Another</button>
                         <button ng-click='onArtistClick()' class="artSingle artistBtn">Artist</button>
+                        <button class="artSingle" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button>
                         </div>
                     </div>
             <div class="col-3 col-m-12">
@@ -19,18 +20,17 @@
 
                     <div class="tab-content">
                         <div id="tab1" ng-show="isActive('tab1')"  ng-class="{active: isActive('tab1')}">
+                            <a ng-href= "{{wikiLocation}}">
                             <p>Artist: {{artist}}</p>
+                            </a>
                             <p>Title: {{title}}</p>
                             <p>Style: {{style}}</p>
-                            <p>Date Completed: {{yearCompleted}}</p>
+                            <p ng-hide="yearCompleted == null">Date Completed: {{yearCompleted}}</p>
                             <p ng-mouseenter="display=true" ng-mouseleave="display=false">Is this work in the Public Domain? : {{publicDomain}}</p>
                             <p ng-show="display" class="animate-show">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
                             displaying of the images of public domain artworks solely. We use here Copyright term based
                             on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
                             the duration of copyright term may differ.</p>
-                            <button class="btn" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">
-                                Copy to clipboard
-                            </button>
                         </div>
 
                         <div id="tab2" ng-show="isActive('tab2')"  ng-class="{active: isActive('tab2')}">

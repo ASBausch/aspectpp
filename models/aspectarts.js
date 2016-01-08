@@ -15,7 +15,8 @@ var artSchema = new Schema({
             publicDomain: Boolean,
             collectedBy: String
         }
-        ]
+        ],
+    wikiLocation: String
 });
 
 var Art = mongoose.model('aspectarts', artSchema)

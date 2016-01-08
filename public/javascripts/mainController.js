@@ -149,14 +149,10 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         $scope.url = response.data[0].works[$scope.workNumber].url;
         $scope.publicDomain = response.data[0].works[$scope.workNumber].publicDomain;
         $scope.works = response.data[0].works;
-
-        if ($scope.publicDomain = true){
-            $scope.publicDomain = 'Yes'
-        } else {
-            $scope.publicDomain = 'No'
-        }
+        $scope.wikiLocation = response.data[0].wikiLocation;
 
         viewed.push($scope.id);
+
     });
 
     $scope.onAnotherClick = function() {
@@ -179,6 +175,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.publicDomain = response.data[randomIndex].works[randomWorks].publicDomain;
             $scope.yearCompleted = response.data[randomIndex].works[randomWorks].yearCompleted;
             $scope.works = response.data[randomIndex].works;
+            $scope.wikiLocation = response.data[randomIndex].wikiLocation;
 
 
             if ($scope.publicDomain = true){
@@ -213,6 +210,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                 $scope.url = response.data[i].works[$scope.workNumber].url;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                 $scope.works = response.data[i].works;
+                $scope.wikiLocation = response.data[i].wikiLocation;
 
                 if ($scope.publicDomain = true){
                     $scope.publicDomain = 'Yes'
@@ -252,6 +250,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     $scope.url = response.data[i].works[$scope.workNumber].url;
                     $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                     $scope.works = response.data[i].works;
+                    $scope.wikiLocation = response.data[i].wikiLocation;
 
                     viewed.push($scope.id);
 
@@ -288,6 +287,15 @@ angular.module('app').controller('TabController', function ($scope){
     $scope.isActive = function(id) {
         return $scope.currentTab === id;
     };
+
+
+    if ($scope.publicDomain = true){
+        $scope.publicDomain = 'Yes'
+    } else {
+        $scope.publicDomain = 'No'
+    }
+
+    console.log($scope.view);
 });
 
 
