@@ -24,6 +24,41 @@ var aspectarts = require('./routes/aspectarts');
 
 var app = express();
 
+//email form
+var nodemailer = require("nodemailer");
+
+
+var smtpTransport = nodemailer.createTransport("SMTP",{
+  service: "Gmail",
+  auth: {
+    user: "asbausch@gmail.com",
+    pass: "sweetpea55!"
+  }
+});
+
+app.get('/send',function(req,res){
+//code to send e-mail.
+  var mailOptions={
+    to : req.query.to,
+    subject : req.query.subject,
+    text : req.query.text
+  };
+  console.log(mailOptions);
+  smtpTransport.sendMail(mailOptions, function(error, response){
+    if(error){
+      console.log(error);
+      res.end("error");
+    }else{
+      console.log("Message sent: " + response.message);
+      res.end("sent");
+    }
+  });
+
+});
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

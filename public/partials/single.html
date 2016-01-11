@@ -1,7 +1,7 @@
  <section>
             <div class='row'>
                     <div class='col-1'></div>
-                    <div class="col-7 col-m-12">
+                    <div class="col-7 col-m-12 col-s-12 col-s col-m">
                         <img class='detailImg' ng-src={{url}} alt="{{title}}"/>
                         <div class="singButtons">
                         <button ng-click='onStyleClick()' class="artSingle styleBtn">Style</button>
@@ -10,7 +10,7 @@
                         <button class="artSingle" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button>
                         </div>
                     </div>
-            <div class="col-3 col-m-12">
+            <div class="col-3 col-m-12 col-s-12 col-s col-m">
                 <div class="tabs" ng-controller="TabController">
                     <ul class="tab-links" ng-init="currentTab='tab1'">
                         <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">About</a></li>
@@ -41,234 +41,242 @@
                         </div>
 
                         <div id="tab3" ng-show="isActive('tab3')" ng-class="{active: isActive('tab3')}">
-                            <p>About {{style}}</p>
+                            <!--<p>About {{style}}</p>-->
 
-                            <div ng-switch='style'>
-                                <div ng-switch-when='Abstract Art'><p>A trend in painting and sculpture in the twentieth century.
-                                    Abstract art seeks to break away from traditional representation of physical objects.
-                                    It explores the relationships of forms and colors, whereas more traditional art represents the
-                                    world in recognizable images.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">abstract-art.Dictionary.com.
-                                        The American Heritage® New Dictionary of Cultural Literacy, Third Edition.Houghton Mifflin Company, 2005.
-                                        http://dictionary.reference.com/browse/abstract-art
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                            <!--<div ng-switch='style'>-->
+                                <!--<div ng-switch-when='Abstract Art'><p>A trend in painting and sculpture in the twentieth century.-->
+                                    <!--Abstract art seeks to break away from traditional representation of physical objects.-->
+                                    <!--It explores the relationships of forms and colors, whereas more traditional art represents the-->
+                                    <!--world in recognizable images.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">abstract-art.Dictionary.com.-->
+                                        <!--The American Heritage® New Dictionary of Cultural Literacy, Third Edition.Houghton Mifflin Company, 2005.-->
+                                        <!--http://dictionary.reference.com/browse/abstract-art-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Abstract Expressionism'><p>A movement in experimental, nonrepresentational painting
-                                    originating in the U.S. in the 1940s, with sources in earlier movements, and embracing many individual
-                                    styles marked in common by freedom of technique, a preference for dramatically large canvases, and a
-                                    desire to give spontaneous expression to the unconscious.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">abstract-expressionism.Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc
-                                        http://dictionary.reference.com/browse/abstract-expressionism
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Abstract Expressionism'><p>A movement in experimental, nonrepresentational painting-->
+                                    <!--originating in the U.S. in the 1940s, with sources in earlier movements, and embracing many individual-->
+                                    <!--styles marked in common by freedom of technique, a preference for dramatically large canvases, and a-->
+                                    <!--desire to give spontaneous expression to the unconscious.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">abstract-expressionism.Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc-->
+                                        <!--http://dictionary.reference.com/browse/abstract-expressionism-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Art Nouveau'><p>A style of fine and applied art current in the late 19th and early 20th
-                                    centuries, characterized chiefly by curvilinear motifs often derived from natural forms.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">art-nouveau.Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc.
-                                        http://dictionary.reference.com/browse/art-nouveau
-                                        (accessed: January 01, 2016).</p>
-                                </div>
-                                <div ng-switch-when='Baroque'><p>A style of architecture and art originating in Italy in the early 17th century
-                                    and variously prevalent in Europe and the New World for a century and a half, characterized by free and sculptural
-                                    use of the classical orders and ornament, by forms in elevation and plan suggesting movement, and by dramatic effect
-                                    in which architecture, painting, sculpture, and the decorative arts often worked to combined effect.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">baroque. Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc.
-                                        http://dictionary.reference.com/browse/baroque
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Art Nouveau'><p>A style of fine and applied art current in the late 19th and early 20th-->
+                                    <!--centuries, characterized chiefly by curvilinear motifs often derived from natural forms.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">art-nouveau.Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/art-nouveau-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
+                                <!--<div ng-switch-when='Baroque'><p>A style of architecture and art originating in Italy in the early 17th century-->
+                                    <!--and variously prevalent in Europe and the New World for a century and a half, characterized by free and sculptural-->
+                                    <!--use of the classical orders and ornament, by forms in elevation and plan suggesting movement, and by dramatic effect-->
+                                    <!--in which architecture, painting, sculpture, and the decorative arts often worked to combined effect.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">baroque. Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/baroque-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Conceptual Art'><p>Art in which emphasis is placed on the means and processes of producing art
-                                    objects rather than on the objects themselves and in which the various tools and techniques, as photographs,
-                                    photocopies, video records, and the construction of environments and earthworks, are used to convey the message
-                                    to the spectator.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">conceptual-art. Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc.
-                                        http://dictionary.reference.com/browse/conceptual-art
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Conceptual Art'><p>Art in which emphasis is placed on the means and processes of producing art-->
+                                    <!--objects rather than on the objects themselves and in which the various tools and techniques, as photographs,-->
+                                    <!--photocopies, video records, and the construction of environments and earthworks, are used to convey the message-->
+                                    <!--to the spectator.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">conceptual-art. Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/conceptual-art-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Cubism'><p>A style of painting and sculpture developed in the early 20th century, characterized
-                                    chiefly by an emphasis on formal structure, the reduction of natural forms to their geometrical equivalents, and
-                                    the organization of the planes of a represented object independently of representational requirements.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">cubism. Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc.
-                                        http://dictionary.reference.com/browse/cubism
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Cubism'><p>A style of painting and sculpture developed in the early 20th century, characterized-->
+                                    <!--chiefly by an emphasis on formal structure, the reduction of natural forms to their geometrical equivalents, and-->
+                                    <!--the organization of the planes of a represented object independently of representational requirements.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">cubism. Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/cubism-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Early Renaissance'><p>A style of art developed principally in Florence, Italy, during the 15th
-                                    century and characterized chiefly by the development of linear perspective, chiaroscuro, and geometrically based
-                                    compositions.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">early-renaissance. Dictionary.com.
-                                        Collins English Dictionary - Complete & Unabridged 10th Edition. HarperCollins Publishers.
-                                        http://dictionary.reference.com/browse/early-renaissance
-                                        (accessed: January 01, 2016).
-                                    </p>
-                                </div>
+                                <!--<div ng-switch-when='Early Renaissance'><p>A style of art developed principally in Florence, Italy, during the 15th-->
+                                    <!--century and characterized chiefly by the development of linear perspective, chiaroscuro, and geometrically based-->
+                                    <!--compositions.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">early-renaissance. Dictionary.com.-->
+                                        <!--Collins English Dictionary - Complete & Unabridged 10th Edition. HarperCollins Publishers.-->
+                                        <!--http://dictionary.reference.com/browse/early-renaissance-->
+                                        <!--(accessed: January 01, 2016).-->
+                                    <!--</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Expressionism'><p>A style of art developed in the 20th century, characterized chiefly by heavy,
-                                    often black lines that define forms, sharply contrasting, often vivid colors, and subjective or symbolic treatment
-                                    of thematic material. A manner of painting, drawing, sculpting, etc., in which forms derived from nature are distorted
-                                    or exaggerated and colors are intensified for emotive or expressive purposes.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">expressionism. Dictionary.com.
-                                        Dictionary.com Unabridged. Random House, Inc.
-                                        http://dictionary.reference.com/browse/expressionism
-                                        (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Expressionism'><p>A style of art developed in the 20th century, characterized chiefly by heavy,-->
+                                    <!--often black lines that define forms, sharply contrasting, often vivid colors, and subjective or symbolic treatment-->
+                                    <!--of thematic material. A manner of painting, drawing, sculpting, etc., in which forms derived from nature are distorted-->
+                                    <!--or exaggerated and colors are intensified for emotive or expressive purposes.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">expressionism. Dictionary.com.-->
+                                        <!--Dictionary.com Unabridged. Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/expressionism-->
+                                        <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='High Renaissance'><p>A style of art developed in Italy in the late 15th and early 16th centuries,
-                                    chiefly characterized by an emphasis on draftsmanship, schematized, often centralized compositions, and the illusion
-                                    of sculptural volume in painting.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "high-renaissance," in Dictionary.com
-                                        Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/high-renaissance.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='High Renaissance'><p>A style of art developed in Italy in the late 15th and early 16th centuries,-->
+                                    <!--chiefly characterized by an emphasis on draftsmanship, schematized, often centralized compositions, and the illusion-->
+                                    <!--of sculptural volume in painting.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "high-renaissance," in Dictionary.com-->
+                                        <!--Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/high-renaissance.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Impressionism'><p>A style of painting developed in the last third of the 19th century, characterized
-                                    chiefly by short brush strokes of bright colors in immediate juxtaposition to represent the effect of light on objects.
-                                    Forms, colors, or tones of an object are lightly and rapidly indicated in paintings and in sculpture volumes are partially
-                                    modeled and surfaces roughened to reflect light unevenly.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "impressionism,"
-                                        in Dictionary.com Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/impressionism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Impressionism'><p>A style of painting developed in the last third of the 19th century, characterized-->
+                                    <!--chiefly by short brush strokes of bright colors in immediate juxtaposition to represent the effect of light on objects.-->
+                                    <!--Forms, colors, or tones of an object are lightly and rapidly indicated in paintings and in sculpture volumes are partially-->
+                                    <!--modeled and surfaces roughened to reflect light unevenly.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "impressionism,"-->
+                                        <!--in Dictionary.com Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/impressionism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Mannerism'><p>A style in the fine arts developed principally in Europe during the 16th century,
-                                    chiefly characterized by a complex perspectival system, elongation of forms, strained gestures or poses of figures, and intense,
-                                    often strident color.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "mannerism," in Dictionary.com
-                                        Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/mannerism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Mannerism'><p>A style in the fine arts developed principally in Europe during the 16th century,-->
+                                    <!--chiefly characterized by a complex perspectival system, elongation of forms, strained gestures or poses of figures, and intense,-->
+                                    <!--often strident color.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "mannerism," in Dictionary.com-->
+                                        <!--Unabridged. Source location: Random House, Inc. http://dictionary.reference.com/browse/mannerism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Neoclassicism'><p>A late 18th- and early 19th-century style in architecture, decorative art, and fine art,
-                                    based on the imitation of surviving classical models and types</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "neoclassicism," in Collins English Dictionary - Complete & Unabridged 10th Edition.
-                                        Source location: HarperCollins Publishers. http://dictionary.reference.com/browse/neoclassicism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Neoclassicism'><p>A late 18th- and early 19th-century style in architecture, decorative art, and fine art,-->
+                                    <!--based on the imitation of surviving classical models and types</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "neoclassicism," in Collins English Dictionary - Complete & Unabridged 10th Edition.-->
+                                        <!--Source location: HarperCollins Publishers. http://dictionary.reference.com/browse/neoclassicism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Neo-Expressionism'><p>An art movement, chiefly in painting, that developed in Germany, Italy, and the U.S. in the late 1970s,
-                                    emphasized large heavy forms and thick impasto, and typically dealt with historical narrative in terms of symbolism, allegory, and myth.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "neo-expressionism," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/neo-expressionism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Neo-Expressionism'><p>An art movement, chiefly in painting, that developed in Germany, Italy, and the U.S. in the late 1970s,-->
+                                    <!--emphasized large heavy forms and thick impasto, and typically dealt with historical narrative in terms of symbolism, allegory, and myth.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "neo-expressionism," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/neo-expressionism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Northern Renaissance'><p>A new era for painting in the Netherlands and Germany in the 16th Century. Northern artists
-                                    were influenced by the great innovations in the South; many artists travelled to Italy to study; and the Renaissance concern for bringing
-                                    modern science and philosophy into art was also evident in the North. There was, however, a difference of outlook between the two cultures.
-                                    In the North, change was driven by another set of preoccupations: religious reform, the return to ancient Christian values, and the revolt
-                                    against the authority of the Church.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">northern-renaissance.
-                                    Dictionary.com. Dictionary.com Unabridged. Random House, Inc.
-                                    http://dictionary.reference.com/browse/northern-renaissance
-                                    (accessed: January 01, 2016).</p>
-                                </div>
+                                <!--<div ng-switch-when='Northern Renaissance'><p>A new era for painting in the Netherlands and Germany in the 16th Century. Northern artists-->
+                                    <!--were influenced by the great innovations in the South; many artists travelled to Italy to study; and the Renaissance concern for bringing-->
+                                    <!--modern science and philosophy into art was also evident in the North. There was, however, a difference of outlook between the two cultures.-->
+                                    <!--In the North, change was driven by another set of preoccupations: religious reform, the return to ancient Christian values, and the revolt-->
+                                    <!--against the authority of the Church.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">northern-renaissance.-->
+                                    <!--Dictionary.com. Dictionary.com Unabridged. Random House, Inc.-->
+                                    <!--http://dictionary.reference.com/browse/northern-renaissance-->
+                                    <!--(accessed: January 01, 2016).</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Photo Realism'><p>A style of painting flourishing in the 1970s, especially in the U.S., England, and France, and depicting
-                                    commonplace scenes or ordinary people, with a meticulously detailed realism, flat images, and barely discernible brushwork that suggests and
-                                    often is based on or incorporates an actual photograph.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "photorealism," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/photorealism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Photo Realism'><p>A style of painting flourishing in the 1970s, especially in the U.S., England, and France, and depicting-->
+                                    <!--commonplace scenes or ordinary people, with a meticulously detailed realism, flat images, and barely discernible brushwork that suggests and-->
+                                    <!--often is based on or incorporates an actual photograph.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "photorealism," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/photorealism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Pop Art'><p>An art movement that began in the U.S. in the 1950s and reached its peak of activity in the 1960s, chose as its
-                                    subject matter the anonymous, everyday, standardized, and banal iconography in American life, as comic strips, billboards, commercial products,
-                                    and celebrity images, and dealt with them typically in such forms as outsize commercially smooth paintings, mechanically reproduced silkscreens,
-                                    large-scale facsimiles, and soft sculptures.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "pop-art," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/pop-art.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Pop Art'><p>An art movement that began in the U.S. in the 1950s and reached its peak of activity in the 1960s, chose as its-->
+                                    <!--subject matter the anonymous, everyday, standardized, and banal iconography in American life, as comic strips, billboards, commercial products,-->
+                                    <!--and celebrity images, and dealt with them typically in such forms as outsize commercially smooth paintings, mechanically reproduced silkscreens,-->
+                                    <!--large-scale facsimiles, and soft sculptures.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "pop-art," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/pop-art.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Post Impressionism'><p>A varied development of Impressionism by a group of painters chiefly between 1880 and 1900 stressing
-                                    formal structure, as with Cézanne and Seurat, or the expressive possibilities of form and color, as with Van Gogh and Gauguin.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "post-impressionism," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/post-impressionism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Post Impressionism'><p>A varied development of Impressionism by a group of painters chiefly between 1880 and 1900 stressing-->
+                                    <!--formal structure, as with Cézanne and Seurat, or the expressive possibilities of form and color, as with Van Gogh and Gauguin.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "post-impressionism," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/post-impressionism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Primitivism'><p>A style of art that attempts to imitate the art of primitive cultures or of children.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "primitivism," in The American Heritage® New Dictionary of Cultural Literacy, Third Edition.
-                                        Source location: Houghton Mifflin Company, 2005. http://dictionary.reference.com/browse/primitivism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.
-                                    </p>
-                                </div>
+                                <!--<div ng-switch-when='Primitivism'><p>A style of art that attempts to imitate the art of primitive cultures or of children.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "primitivism," in The American Heritage® New Dictionary of Cultural Literacy, Third Edition.-->
+                                        <!--Source location: Houghton Mifflin Company, 2005. http://dictionary.reference.com/browse/primitivism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.-->
+                                    <!--</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Realism'><p>A style of painting and sculpture developed about the mid-19th century in which figures and scenes are depicted
-                                    as they are experienced or might be experienced in everyday life. Treatment of forms, colors, space, etc., is in such a manner as to emphasize
-                                    their correspondence to actuality or to ordinary visual experience.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "realism," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/realism.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Realism'><p>A style of painting and sculpture developed about the mid-19th century in which figures and scenes are depicted-->
+                                    <!--as they are experienced or might be experienced in everyday life. Treatment of forms, colors, space, etc., is in such a manner as to emphasize-->
+                                    <!--their correspondence to actuality or to ordinary visual experience.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "realism," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/realism.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Rococo'><p>A style of architecture and decoration, originating in France about 1720, evolved from Baroque types and distinguished
-                                    by its elegant refinement in using different materials for a delicate overall effect and by its ornament of shellwork, foliage, etc.
-                                    A style of painting developed simultaneously with the rococo in architecture and decoration, characterized chiefly by smallness of scale, delicacy
-                                    of color, freedom of brushwork, and the selection of playful subjects as thematic material.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "rococo," in Dictionary.com Unabridged.
-                                        Source location: Random House, Inc. http://dictionary.reference.com/browse/rococo.
-                                        Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Rococo'><p>A style of architecture and decoration, originating in France about 1720, evolved from Baroque types and distinguished-->
+                                    <!--by its elegant refinement in using different materials for a delicate overall effect and by its ornament of shellwork, foliage, etc.-->
+                                    <!--A style of painting developed simultaneously with the rococo in architecture and decoration, characterized chiefly by smallness of scale, delicacy-->
+                                    <!--of color, freedom of brushwork, and the selection of playful subjects as thematic material.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "rococo," in Dictionary.com Unabridged.-->
+                                        <!--Source location: Random House, Inc. http://dictionary.reference.com/browse/rococo.-->
+                                        <!--Available: http://dictionary.reference.com/. Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Romanticism'><p>A movement that shaped all the arts in the late eighteenth and early nineteenth centuries. Romanticism generally
-                                    stressed the essential goodness of human beings, celebrated nature rather than civilization, and valued emotion and imagination over reason.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "romanticism," in The American Heritage® New Dictionary of Cultural Literacy, Third Edition.
-                                        Source location: Houghton Mifflin Company, 2005. http://dictionary.reference.com/browse/romanticism.
-                                        Available: http://dictionary.reference.com/.
-                                        Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Romanticism'><p>A movement that shaped all the arts in the late eighteenth and early nineteenth centuries. Romanticism generally-->
+                                    <!--stressed the essential goodness of human beings, celebrated nature rather than civilization, and valued emotion and imagination over reason.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "romanticism," in The American Heritage® New Dictionary of Cultural Literacy, Third Edition.-->
+                                        <!--Source location: Houghton Mifflin Company, 2005. http://dictionary.reference.com/browse/romanticism.-->
+                                        <!--Available: http://dictionary.reference.com/.-->
+                                        <!--Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Street Art'><p>Street art is any art developed in public spaces. The term can include traditional graffiti art work, as well as,
-                                    stencil graffiti, sticker art, wheatpasting and street poster art, video projection, art intervention, guerrilla art, flash mobbing and street
-                                    installations.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">http://www.artrepublic.com/art_terms/39-street-art.html/</p>
-                                </div>
+                                <!--<div ng-switch-when='Street Art'><p>Street art is any art developed in public spaces. The term can include traditional graffiti art work, as well as,-->
+                                    <!--stencil graffiti, sticker art, wheatpasting and street poster art, video projection, art intervention, guerrilla art, flash mobbing and street-->
+                                    <!--installations.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">http://www.artrepublic.com/art_terms/39-street-art.html/</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Surrealism'><p>A style of art and literature developed principally in the 20th century, stressing the subconscious or
-                                    nonrational significance of imagery arrived at by automatism or the exploitation of chance effects, unexpected juxtapositions, etc.</p>
-                                    <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "surrealism," in Dictionary.com Unabridged. Source location: Random House, Inc.
-                                        http://dictionary.reference.com/browse/surrealism.
-                                        Available: http://dictionary.reference.com/.
-                                        Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Surrealism'><p>A style of art and literature developed principally in the 20th century, stressing the subconscious or-->
+                                    <!--nonrational significance of imagery arrived at by automatism or the exploitation of chance effects, unexpected juxtapositions, etc.</p>-->
+                                    <!--<p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "surrealism," in Dictionary.com Unabridged. Source location: Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/surrealism.-->
+                                        <!--Available: http://dictionary.reference.com/.-->
+                                        <!--Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
 
-                                <div ng-switch-when='Symbolism'><p>A style of art with an artist who seeks to symbolize or suggest ideas or emotions by the objects represented,
-                                    the colors used, etc. Prefered by 19th-century artists who rejected realism and sought to express subjective visions rather than objective
-                                    reality through the use of evocative images.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>
-                                    <p class="citation animate-show" ng-show="options">Dictionary.com "symbolist," in Dictionary.com Unabridged. Source location: Random House, Inc.
-                                        http://dictionary.reference.com/browse/symbolist.
-                                        Available: http://dictionary.reference.com/.
-                                        Accessed: January 02, 2016.</p>
-                                </div>
+                                <!--<div ng-switch-when='Symbolism'><p>A style of art with an artist who seeks to symbolize or suggest ideas or emotions by the objects represented,-->
+                                    <!--the colors used, etc. Prefered by 19th-century artists who rejected realism and sought to express subjective visions rather than objective-->
+                                    <!--reality through the use of evocative images.</p> <p class="citation" ng-mouseenter="options=true" ng-mouseleave="options=false">citation</p>-->
+                                    <!--<p class="citation animate-show" ng-show="options">Dictionary.com "symbolist," in Dictionary.com Unabridged. Source location: Random House, Inc.-->
+                                        <!--http://dictionary.reference.com/browse/symbolist.-->
+                                        <!--Available: http://dictionary.reference.com/.-->
+                                        <!--Accessed: January 02, 2016.</p>-->
+                                <!--</div>-->
+                            <div>
+                                <h1>Add to Aspect</h1>
+                                <input id="to" type="text" placeholder="ASBausch@gmail.com" />
+                                <input id="subject" type="text" placeholder="Write Subject" />
+                                <textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
+                                <button id="send_email">Send Email</button>
+                                <span id="message"></span>
+                            </div>
                             </div>
                         </div>
 

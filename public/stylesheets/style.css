@@ -37,11 +37,33 @@ ul {
   padding: 15px;
 }
 
-/* For mobile and tablets: */
-[class*="col-m-"] {
+[class*="col-s"] {
   width: 100%;
 }
-@media (min-width: 767px) {
+@media only screen and (max-width: 400px) {
+.col-s-1 {width: 8.33%;}
+.col-s-2 {width: 16.66%;}
+.col-s-3 {width: 25%;}
+.col-s-4 {width: 33.33%;}
+.col-s-5 {width: 41.66%;}
+.col-s-6 {width: 50%;}
+.col-s-7 {width: 58.33%;}
+.col-s-8 {width: 66.66%;}
+.col-s-9 {width: 75%;}
+.col-s-10 {width: 83.33%;}
+.col-s-11 {width: 91.66%;}
+.col-s-12 {width: 100%;}
+.col-s {
+    background-color: red;
+  }
+}
+
+/* For mobile and tablets: */
+[class*="col-m"] {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
   /* For tablets: */
   .col-m-1 {width: 8.33%;}
   .col-m-2 {width: 16.66%;}
@@ -55,6 +77,9 @@ ul {
   .col-m-10 {width: 83.33%;}
   .col-m-11 {width: 91.66%;}
   .col-m-12 {width: 100%;}
+  .col-m{
+    background-color: #142641;
+  }
 }
 
 @media (min-width: 768px) {
@@ -111,34 +136,27 @@ ul {
 
 .artChange {
   width: 40%;
-  margin: auto;
-  display: block;
+  margin: 16px 0px 0px 44px;
+  display: inline-block;
   background: #6F6058;
-  border-radius: 4px;
+  border-radius: 1px;
   font-family: 'Raleway', sans-serif;
   color: #FEFBF7;
   font-size: 0.875em;
-  padding: 2px 8px 2px 8px;
-  box-shadow: 2px 2px 5px grey;
+  padding: 2px 0px 2px 0px;
   outline: none;
 }
 
-.artChange:hover {
-  background: #CEC6BA;
-  background-image: linear-gradient(to bottom, #CEC6BA, #6F6058);
-}
-
 .artSingle {
-  width: 10%;
-  margin: 20px 25px 0px 30px;
-  display: inline;
+  width: 20%;
+  margin: auto;
+  display: inline-block;
   background: #6F6058;
-  border-radius: 4px;
+  border-radius: 1px;
   font-family: 'Raleway', sans-serif;
   color: #FEFBF7;
   font-size: 0.875em;
-  padding: 2px 8px 2px 8px;
-  box-shadow: 2px 2px 5px grey;
+  padding: 2px 0px 2px 0px;
   outline: none;
 }
 
@@ -146,14 +164,6 @@ ul {
   text-align: center;
 }
 
-.artSingle:hover {
-  background: #CEC6BA;
-  background-image: linear-gradient(to bottom, #CEC6BA, #6F6058);
-}
-
-.anotherSing {
-  padding: 2px 0px 2px 0px;
-}
 
 /* images */
 
