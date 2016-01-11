@@ -19,5 +19,5 @@ var artSchema = new Schema({
     wikiLocation: String
 });
 
-var Art = mongoose.model('aspectarts', artSchema)
+var Art = mongoose.model('aspectarts', artSchema);
 module.exports= Art;
