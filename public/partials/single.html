@@ -1,7 +1,7 @@
  <section>
             <div class='row'>
                     <div class='col-1'></div>
-                    <div class="col-7 col-m-12 col-s-12 col-s col-m">
+                    <div class="col-7">
                         <img class='detailImg' ng-src={{url}} alt="{{title}}"/>
                         <div class="singButtons">
                         <button ng-click='onStyleClick()' class="artSingle styleBtn">Style</button>
@@ -10,7 +10,7 @@
                         <button class="artSingle" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button>
                         </div>
                     </div>
-            <div class="col-3 col-m-12 col-s-12 col-s col-m">
+            <div class="col-3 col-m-12">
                 <div class="tabs" ng-controller="TabController">
                     <ul class="tab-links" ng-init="currentTab='tab1'">
                         <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">About</a></li>

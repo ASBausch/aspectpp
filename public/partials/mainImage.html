@@ -12,13 +12,13 @@
 <section>
     <div class='row singButtons'>
         <div class='col-2'></div>
-        <div class='col-2 col-m-4'><button ng-click='onStyleClick()'  type='button' class='artChange styleBtn' ng-mouseenter="options=true" ng-mouseleave="options=false">
+        <div class='col-2'><button ng-click='onStyleClick()'  type='button' class='artChange styleBtn' ng-mouseenter="options=true" ng-mouseleave="options=false">
             Style</button><p class="buttonExplain animate-show" ng-show="options">Choose another work in {{style}}.</p></div>
         <div class='col-2 another col-m-4'><button ng-click= 'onAnotherClick()' type='button' class='artChange allNewBtn' ng-mouseenter="options2=true" ng-mouseleave="options2=false">
             Title</button><p class="buttonExplain animate-show" ng-show="options2">"{{title}}"<br> Choose another work.</p></div>
-        <div class='col-2 col-m-4'><button ng-click= 'onArtistClick()'type='button' class='artChange artistBtn' ng-mouseenter="options3=true" ng-mouseleave="options3=false">
+        <div class='col-2'><button ng-click= 'onArtistClick()'type='button' class='artChange artistBtn' ng-mouseenter="options3=true" ng-mouseleave="options3=false">
             Artist</button><p class="buttonExplain animate-show" ng-show="options3">Choose another work by {{artist}}.</p></div>
-        <div class='col-2 col-m-4'><button class="artChange" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button></div>
+        <div class='col-2'><button class="artChange" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button></div>
         <div class='col-2'></div>
     </div>
 </section>
