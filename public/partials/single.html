@@ -4,10 +4,16 @@
                     <div class="col-7">
                         <img class='detailImg' ng-src={{url}} alt="{{title}}"/>
                         <div class="singButtons">
-                        <button ng-click='onStyleClick()' class="artSingle">Style</button>
-                        <button ng-click='onAnotherClick()' class="artSingle">Another</button>
-                        <button ng-click='onArtistClick()' class="artSingle">Artist</button>
-                        <button class="artSingle" ngclipboard data-clipboard-text="http://localhost:3000//#/single/{{id}}/{{workNumber}}">Share</button>
+                        <button ng-click='onStyleClick()' class="artSingle" ng-mouseenter="options=true" ng-mouseleave="options=false">Style</button>
+                        <button ng-click='onAnotherClick()' class="artSingle" ng-mouseenter="options2=true" ng-mouseleave="options2=false">Another</button>
+                        <button ng-click='onArtistClick()' class="artSingle" ng-mouseenter="options3=true" ng-mouseleave="options3=false">Artist</button>
+                        <button class="artSingle" ng-mouseenter="options4=true" ng-mouseleave="options4=false" ngclipboard data-clipboard-text="http://localhost:3000//#/single/{{id}}/{{workNumber}}">Share</button>
+                        </div>
+                        <div>
+                            <p class="col-2 buttonExplain animate-show" ng-show="options">Choose another work in {{style}}.</p>
+                            <p class="col-2 buttonExplain animate-show" ng-show="options2">"{{title}}"<br> Choose another work.</p>
+                            <p class="col-2 buttonExplain animate-show" ng-show="options3">Choose another work by {{artist}}.</p>
+                            <p class="col-2 buttonExplain animate-show" ng-show="options4">Copy this url to your clipboard and share.</p>
                         </div>
                     </div>
             <div class="col-3 col-m-12">
