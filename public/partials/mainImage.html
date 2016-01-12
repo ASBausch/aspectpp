@@ -18,7 +18,8 @@
             Title</button><p class="buttonExplain animate-show" ng-show="options2">"{{title}}"<br> Choose another work.</p></div>
         <div class='col-2'><button ng-click= 'onArtistClick()'type='button' class='artChange artistBtn' ng-mouseenter="options3=true" ng-mouseleave="options3=false">
             Artist</button><p class="buttonExplain animate-show" ng-show="options3">Choose another work by {{artist}}.</p></div>
-        <div class='col-2'><button class="artChange" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button></div>
+        <div class='col-2'><button class="artChange" ng-mouseenter="options4=true" ng-mouseleave="options4=false" ngclipboard data-clipboard-text="/#/single/{{id}}/{{workNumber}}">Share</button>
+            <p class="buttonExplain animate-show" ng-show="options4">Copy this url to your clipboard and share.</p></div>
         <div class='col-2'></div>
     </div>
 </section>

@@ -25,6 +25,12 @@ p {
   font-size: 12px;
 }
 
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+
+}
+
 a {
   text-decoration: none;
   color: #6F6057;
@@ -119,6 +125,8 @@ ul {
 }
 
 .buttonExplain {
+  margin: 16px 0px 0px 44px;
+  display: inline-block;
   text-align: center;
   color: #6F6058
 }
@@ -132,8 +140,9 @@ ul {
   font-family: 'Raleway', sans-serif;
   color: #FEFBF7;
   font-size: 0.875em;
-  padding: 2px 0px 2px 0px;
+  padding: 2px 70px 2px 40px;
   outline: none;
+  text-align: center;
 }
 
 .artSingle {
@@ -274,5 +283,5 @@ li.active a, li.active a:hover {
 
 /*----- Form elements -----*/
 #message {
-width:90%;
+width:100%;
 }
