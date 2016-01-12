@@ -1,3 +1,17 @@
+legend {
+  padding: 0;
+  display: table;
+}
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
 main{
   background-color: #FEFBF7;
 }
@@ -258,4 +272,7 @@ li.active a, li.active a:hover {
 }
 
 
-
+/*----- Form elements -----*/
+#message {
+width:90%;
+}

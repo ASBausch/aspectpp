@@ -15,7 +15,7 @@
                     <ul class="tab-links" ng-init="currentTab='tab1'">
                         <li ng-class="{active: isActive('tab1')}"><a ng-click="onTabClick('tab1')">About</a></li>
                         <li ng-class="{active: isActive('tab2')}"><a ng-click="onTabClick('tab2')">More</a></li>
-                        <li ng-class="{active: isActive('tab3')}"><a ng-click="onTabClick('tab3')">Style</a></li>
+                        <li ng-class="{active: isActive('tab3')}"><a ng-click="onTabClick('tab3')">Thoughts</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -42,7 +42,7 @@
 
                         <div id="tab3" ng-show="isActive('tab3')" ng-class="{active: isActive('tab3')}">
                             <div class="content">
-                                <form action="/contact" name="contact" id="contact" method="post">
+                                <form class = "contact" action="/contact" name="contact" id="contact" method="post">
                                     <fieldset>
                                         <p>
                                             <label for="name">Name:</label><br/>
