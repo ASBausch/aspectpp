@@ -15,7 +15,7 @@ angular.module('app').controller("MainController", function(){
 //start with, the scope and http methods of angular are required here
 
 angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http){
-    var viewed = [];
+    var seen = [];
     $http({
         method: 'GET',
         url: '/aspectarts'
@@ -36,39 +36,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         $scope.id = response.data[randomIndex]._id;
 
     });
-
-    $scope.onStyleClick = function(){
-        $http({
-            method: 'GET',
-            //the url knows what the current style is because it is
-            //set in $scope.style we concat it here so that the url
-            //has the correct params to search by in the node route
-            url: '/style/' + $scope.style
-        }).then(function(response) {
-            //we loop through our response and reset the value of the scop
-            //objects with the new data from our search, angular automatically
-            //reads this new data without refresh
-
-            for (var i=0; i< response.data.length; i++){
-
-                var id = response.data[i]._id;
-
-                if (viewed.indexOf(id) === -1) {
-                    $scope.id = response.data[i]._id;
-                    $scope.artist = response.data[i].artist;
-                    $scope.style = response.data[i].style;
-                    $scope.title = response.data[i].works[$scope.workNumber].title;
-                    $scope.url = response.data[i].works[$scope.workNumber].url;
-                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
-                    //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
-                    viewed.push($scope.id);
-
-                    break;
-                }
-            }
-
-        });
-    };
 
     //search /view change via 'another' button which will change the current piece to one
     //completely different, the index will be chosen via a random number generator with a
@@ -122,7 +89,45 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
             }
         });
-    }
+    };
+
+    $scope.onStyleClick = function(){
+        $http({
+            method: 'GET',
+            //the url knows what the current style is because it is
+            //set in $scope.style we concat it here so that the url
+            //has the correct params to search by in the node route
+            url: '/style/' + $scope.style
+        }).then(function(response) {
+            //we loop through our response and reset the value of the scop
+            //objects with the new data from our search, angular automatically
+            //reads this new data without refresh
+
+            for (var i=0; i< response.data.length; i++){
+
+                var id = response.data[i]._id;
+
+                if (seen.indexOf(id) === -1) {
+                    $scope.id = response.data[i]._id;
+                    $scope.artist = response.data[i].artist;
+                    $scope.style = response.data[i].style;
+                    $scope.title = response.data[i].works[$scope.workNumber].title;
+                    $scope.url = response.data[i].works[$scope.workNumber].url;
+                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
+                    //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+                    seen.push($scope.id);
+
+                    break;
+                }
+            }
+console.log($scope.title);
+        });
+        if (seen.length == 3) {
+            popupS.alert({
+                content: 'Aspect is still growing, try choosing another title.'
+            });
+        }
+    };
 
 }]);
 
@@ -269,13 +274,11 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     break;
                 }
             }
-//only clicks 3 times - we need a click counter or an array.length then a modal/popup to display
-
         });
 
         if (viewed.length == 3) {
             popupS.alert({
-                content: 'View another title.'
+                content: 'Aspect is still growing, try choosing another title.'
             });
         }
     };
