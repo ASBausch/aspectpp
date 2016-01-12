@@ -1,11 +1,17 @@
 var express = require('express');
+
 var path = require('path');
+
 var favicon = require('serve-favicon');
+
 var logger = require('morgan');
+
 var cookieParser = require('cookie-parser');
+
 var bodyParser = require('body-parser');
 //may not use
 var expressValidator = require('express-validator');
+
 var index = require('./routes/index');
 
 var admin = require('./routes/admin');
@@ -18,46 +24,19 @@ var artist = require('./routes/artist');
 
 var detailPage = require('./routes/detailPage')
 
-//
 var Art = require('./models/aspectarts');
+
 var aspectarts = require('./routes/aspectarts');
 
 var app = express();
 
-//email form
-var nodemailer = require("nodemailer");
+var contact = require('./routes/contact');
 
+var nodemailer = require('nodemailer');
 
-var smtpTransport = nodemailer.createTransport("SMTP",{
-  service: "Gmail",
-  auth: {
-    user: "asbausch@gmail.com",
-    pass: "sweetpea55!"
-  }
-});
+//app.get('/contact', contact);
 
-app.get('/send',function(req,res){
-//code to send e-mail.
-  var mailOptions={
-    to : req.query.to,
-    subject : req.query.subject,
-    text : req.query.text
-  };
-  console.log(mailOptions);
-  smtpTransport.sendMail(mailOptions, function(error, response){
-    if(error){
-      console.log(error);
-      res.end("error");
-    }else{
-      console.log("Message sent: " + response.message);
-      res.end("sent");
-    }
-  });
-
-});
-
-
-
+//email
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -86,6 +65,9 @@ app.use('/style', style);
 app.use('/artist', artist);
 
 app.use('/detailPage', detailPage);
+
+app.use('/contact', contact);
+
 
 // Bring Mongoose into the app
 var mongoose = require( 'mongoose' );

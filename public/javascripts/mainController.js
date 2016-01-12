@@ -296,6 +296,8 @@ angular.module('app').controller('TabController', function ($scope){
     }
 
     console.log($scope.view);
+
+
 });
 
 
@@ -312,11 +314,4 @@ app.config(['$routeProvider', function($routeProvider){
         controller: 'ArtDetailController'
     });
 }]);
-
-
-
-
-
-
-
 
