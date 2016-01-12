@@ -1,40 +1,23 @@
 var express = require('express');
-
 var path = require('path');
-
 var favicon = require('serve-favicon');
-
 var logger = require('morgan');
-
 var cookieParser = require('cookie-parser');
-
 var bodyParser = require('body-parser');
-//may not use
 var expressValidator = require('express-validator');
-
 var index = require('./routes/index');
-
 var admin = require('./routes/admin');
-
 var single = require('./routes/single');
-
 var style = require('./routes/style');
-
 var artist = require('./routes/artist');
-
 var detailPage = require('./routes/detailPage')
-
 var Art = require('./models/aspectarts');
-
 var aspectarts = require('./routes/aspectarts');
-
 var app = express();
-
 var contact = require('./routes/contact');
-
 var nodemailer = require('nodemailer');
 
-//app.get('/contact', contact);
+
 
 //email
 
@@ -51,21 +34,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //may not use
 app.use(expressValidator());
-
 app.use('/', index);
-
 app.use('/admin', admin);
-
 app.use('/single', single);
-
 app.use('/aspectarts', aspectarts);
-
 app.use('/style', style);
-
 app.use('/artist', artist);
-
 app.use('/detailPage', detailPage);
-
 app.use('/contact', contact);
 
 

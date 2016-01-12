@@ -66,6 +66,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     break;
                 }
             }
+
         });
     };
 
@@ -130,7 +131,9 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 //routeParams.id assures that the id of the current piece is pulled from the url
 //when it was passed from the single page.
 
-angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams, $location) {
+//DETAIL PAGE
+
+angular.module('app').controller('ArtDetailController', function($scope, $http, $routeParams) {
     var viewed = [];
     $http({
         method: 'GET',
@@ -222,6 +225,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         });
     };
 
+
     $scope.onStyleClick = function(){
         $http({
             method: 'GET',
@@ -265,7 +269,15 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                     break;
                 }
             }
+//only clicks 3 times - we need a click counter or an array.length then a modal/popup to display
+
         });
+
+        if (viewed.length == 3) {
+            popupS.alert({
+                content: 'View another title.'
+            });
+        }
     };
 
 });
