@@ -1,19 +1,18 @@
 <section>
-    <div class='row'>
-        <div class='col-2'></div>
-        <figure>
+    <div>
+        <div class="big">
             <a ng-href="/#/single/{{id}}/{{workNumber}}">
-                <img class='col-8 main' ng-src='{{url}}' alt="{{title}}"/>
+                <img class="big" ng-src='{{url}}' alt="{{title}}"/>
             </a>
-        </figure>
-    <div class='singButtons col-8'>
+        </div>
+    <div class='singButtons'>
        <button ng-click='onStyleClick()' class='artMain' ng-mouseenter="options=true" ng-mouseleave="options=false">Style</button>
        <button ng-click= 'onAnotherClick()' class='artMain' ng-mouseenter="options2=true" ng-mouseleave="options2=false">Title</button>
        <button ng-click= 'onArtistClick()' class='artMain' ng-mouseenter="options3=true" ng-mouseleave="options3=false">Artist</button>
        <button class="artMain" ng-mouseenter="options4=true" ng-mouseleave="options4=false" ngclipboard data-clipboard-text="http://localhost:3000//#/single/{{id}}/{{workNumber}}">Share</button>
     </div>
     </div>
-    <div class='row'>
+    <div>
         <div>
             <p class="col-2 buttonExplain animate-show" ng-show="options">Choose another work in {{style}}.</p>
             <p class="col-2 buttonExplain animate-show" ng-show="options2">"{{title}}"<br> Choose another work.</p>

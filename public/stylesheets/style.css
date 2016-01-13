@@ -171,6 +171,13 @@ ul {
 
 /* images */
 
+.big {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
 .main {
   border: 2px solid #6F6056;
   padding: 0px;
