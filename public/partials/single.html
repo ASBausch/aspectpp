@@ -40,7 +40,8 @@
                         </div>
 
                         <div id="tab2" ng-show="isActive('tab2')"  ng-class="{active: isActive('tab2')}">
-                            <p>More by {{artist}} in {{style}}</p>
+                            <p>More by {{artist}} in <br>
+                                {{style}}</p>
                             <div class="byArtistWorks">
                             <img class='thumb' ng-repeat="work in works" ng-if="work.url != url" ng-src={{work.url}} alt="{{work.title}}"/>
                             </div>

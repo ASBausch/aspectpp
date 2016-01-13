@@ -34,6 +34,7 @@ h3 {
 a {
   text-decoration: none;
   color: #6F6057;
+  cursor: alias;
 }
 
 footer {
@@ -143,6 +144,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
+  cursor: alias;
 }
 
 .artMain {
@@ -156,6 +158,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
+  cursor: alias;
 }
 
 .singButtons{
@@ -240,6 +243,7 @@ ul {
   color:#6F6056;
   transition:all linear 0.15s;
   text-decoration:none;
+  cursor: alias;
 }
 
 .tab-links a:hover {
@@ -287,4 +291,13 @@ li.active a, li.active a:hover {
 /*----- Form elements -----*/
 #message {
 width:100%;
+}
+
+#submit {
+  background: #6F6058;
+  border-radius: 1px;
+  font-family: 'Raleway', sans-serif;
+  color: #FEFBF7;
+  font-size: 0.875em;
+  cursor: alias;
 }

@@ -86,7 +86,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
                 $scope.workNumber = artNumber;
                 $scope.title = response.data[i].works[$scope.workNumber].title;
-                //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
 
             }
@@ -122,7 +121,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     break;
                 }
             }
-console.log($scope.title);
+        console.log($scope.title);
         });
         if (seen.length == 3) {
             popupS.alert({

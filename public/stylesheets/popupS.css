@@ -1,3 +1,10 @@
+#popupS-button-ok{
+	color: blue;
+	margin: 25px 0px 0px 5px
+}
+
+
+
 .popupS-layer{
 		-webkit-box-shadow: 0 0 20px rgba(0,0,0,.25);
 		-moz-box-shadow: 0 0 20px rgba(0,0,0,.25);
@@ -19,18 +26,22 @@
 	position: absolute;
 	width: 1px;
 }
-.popupS-close{
-	position: absolute;
-	top: 0;
-	right: 0;
-	line-height: 40px;
-	font-size: 32px;
-	text-align: center;
-	font-weight: 700;
-	width: 32px;
-	height: 40px;
-	cursor: pointer;
-	z-index:1020;
+/*.popupS-close{*/
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*right: 0;*/
+	/*line-height: 40px;*/
+	/*font-size: 32px;*/
+	/*text-align: center;*/
+	/*font-weight: 700;*/
+	/*width: 32px;*/
+	/*height: 40px;*/
+	/*cursor: pointer;*/
+	/*z-index:1020;*/
+/*}*/
+
+#popupS-close{
+	display: none;
 }
 .popupS-title{
 		position: absolute;
@@ -50,6 +61,9 @@
 	max-width:700px;
 	padding:40px;
 	border-radius:6px;
+	color: steelblue;
+	font-size: 20px;
+	font-family: 'Philosopher', sans-serif;
 }
 .popupS-content img{
 	max-width:100%;
