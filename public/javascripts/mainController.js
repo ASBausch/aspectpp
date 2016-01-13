@@ -11,17 +11,14 @@ angular.module('app').controller("MainController", function(){
     vm.title = 'Aspect';
 });
 
-//controller for main art on index page currently a random work  to
-//start with, the scope and http methods of angular are required here
+//controller for main art on index page the scope and http methods of angular are required here
 
 angular.module('app').controller('ImageController', ['$scope','$http', function($scope,$http){
     var seen = [];
     $http({
         method: 'GET',
         url: '/aspectarts'
-        //all info from aspect arts is available via this request, the current piece shown
-        //is determined by the data values setting the scope
-        //in this instance it is coded to one particular image/artist data
+        //all info from aspect arts is available via this request, the current piece shown is determined by the data values setting the scope
     }).then(function(response) {
         var max = response.data.length;
         var randomIndex = Math.floor(Math.random() * (max - 0 + 1));
@@ -37,9 +34,8 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
 
     });
 
-    //search /view change via 'another' button which will change the current piece to one
-    //completely different, the index will be chosen via a random number generator with a
-    //max of the length of the aspectarts array
+    //search /view change via 'another' button which will change the current piece to one the index will be chosen via a random number generator with a
+
     $scope.onAnotherClick = function() {
         seen=[];
         $http({
@@ -61,8 +57,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         });
     };
     //search /view change via 'artist' button which will change the current piece to one
-    //a different one of the same artist, the artist will be based on the currently
-    //viewed piece set in $scope.artist
+
     $scope.onArtistClick = function (){
         seen=[];
         $http({
@@ -70,23 +65,18 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
             url: '/artist/' + $scope.artist
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
-
-                $scope.id = response.data[i]._id;
-                $scope.artist = response.data[i].artist;
-                $scope.style = response.data[i].style;
-
                 var artNumber;
-
                 if ($scope.workNumber <2 ) {
                     artNumber = $scope.workNumber + 1;
                 } else {
                     artNumber = 0
                 }
-
                 $scope.workNumber = artNumber;
-                $scope.title = response.data[i].works[$scope.workNumber].title;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
-
+                $scope.title = response.data[i].works[$scope.workNumber].title;
+                $scope.style = response.data[i].style;
+                $scope.artist = response.data[i].artist;
+                $scope.id = response.data[i]._id;
             }
         });
     };
@@ -94,24 +84,14 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     $scope.onStyleClick = function(){
         $http({
             method: 'GET',
-            //the url knows what the current style is because it is
-            //set in $scope.style we concat it here so that the url
-            //has the correct params to search by in the node route
+            //the url knows what the current style is set in $scope.style we concat it here so that the url has the correct params to search by in the node route
             url: '/style/' + $scope.style
         }).then(function(response) {
-            //we loop through our response and reset the value of the scop
-            //objects with the new data from our search, angular automatically
-            //reads this new data without refresh
-
+            //we loop through our response and reset the value of the scope objects with the new data from our search, angular
             for (var i=0; i< response.data.length; i++){
-
                 var id = response.data[i]._id;
 
                 if (seen.indexOf(id) === -1) {
-                    $scope.id = response.data[i]._id;
-                    $scope.artist = response.data[i].artist;
-                    $scope.style = response.data[i].style;
-
                     var artNumber;
 
                     if ($scope.workNumber <2 ) {
@@ -121,9 +101,11 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     }
 
                     $scope.workNumber = artNumber;
-
-                    $scope.title = response.data[i].works[$scope.workNumber].title;
                     $scope.url = response.data[i].works[$scope.workNumber].url;
+                    $scope.title = response.data[i].works[$scope.workNumber].title;
+                    $scope.style = response.data[i].style;
+                    $scope.artist = response.data[i].artist;
+                    $scope.id = response.data[i]._id;
                     seen.push($scope.id);
 
                     break;
@@ -133,7 +115,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         });
         if (seen.length == 3) {
             popupS.alert({
-                content: 'Aspect is still growing, try choosing another title.'
+                content: 'Aspect is still growing. Choose a new title, or work from the artist then try for more connections.'
             });
         }
     };
@@ -154,16 +136,15 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
         url: '/detailPage/'+ $routeParams.id
     }).then(function(response) {
 
-        //all of the scope properties are set by the routeparams id this will be
-        //upon first entry to the page but will update with button clicks
+        //all of the scope properties are set by the routeparams id
 
         $scope.workNumber = $routeParams.workNumber;
-        $scope.id = response.data[0]._id;
-        $scope.artist = response.data[0].artist;
-        $scope.style = response.data[0].style;
-        $scope.title = response.data[0].works[$scope.workNumber].title;
-        $scope.yearCompleted = response.data[0].works[$scope.workNumber].yearCompleted;
         $scope.url = response.data[0].works[$scope.workNumber].url;
+        $scope.title = response.data[0].works[$scope.workNumber].title;
+        $scope.style = response.data[0].style;
+        $scope.artist = response.data[0].artist;
+        $scope.id = response.data[0]._id;
+        $scope.yearCompleted = response.data[0].works[$scope.workNumber].yearCompleted;
         $scope.publicDomain = response.data[0].works[$scope.workNumber].publicDomain;
         $scope.works = response.data[0].works;
         $scope.wikiLocation = response.data[0].wikiLocation;
@@ -184,7 +165,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             var randomWorks = Math.floor(Math.random() * (maxWorks + 1));
 
             $scope.workNumber = randomWorks;
-
             $scope.url = response.data[randomIndex].works[randomWorks].url;
             $scope.title= response.data[randomIndex].works[randomWorks].title;
             $scope.style = response.data[randomIndex].style;
@@ -194,7 +174,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.yearCompleted = response.data[randomIndex].works[randomWorks].yearCompleted;
             $scope.works = response.data[randomIndex].works;
             $scope.wikiLocation = response.data[randomIndex].wikiLocation;
-
 
             if ($scope.publicDomain = true){
                 $scope.publicDomain = 'Yes'
@@ -211,23 +190,20 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             url: '/artist/' + $scope.artist
         }).then(function(response){
             for (var i=0; i< response.data.length; i++) {
-
-                $scope.id = response.data[i]._id;
-                $scope.artist = response.data[i].artist;
-                $scope.style = response.data[i].style;
-
                 var artNumber;
-
                 if ($scope.workNumber <2 ) {
                     artNumber = $scope.workNumber + 1;
                 } else {
                     artNumber = 0
                 }
                 $scope.workNumber = artNumber;
-                $scope.title = response.data[i].works[$scope.workNumber].title;
-                $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.url = response.data[i].works[$scope.workNumber].url;
+                $scope.title = response.data[i].works[$scope.workNumber].title;
+                $scope.style = response.data[i].style;
+                $scope.artist = response.data[i].artist;
+                $scope.id = response.data[i]._id;
                 $scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
+                $scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
                 $scope.works = response.data[i].works;
                 $scope.wikiLocation = response.data[i].wikiLocation;
 
