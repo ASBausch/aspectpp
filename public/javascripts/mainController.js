@@ -41,6 +41,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     //completely different, the index will be chosen via a random number generator with a
     //max of the length of the aspectarts array
     $scope.onAnotherClick = function() {
+        seen=[];
         $http({
             method: 'GET',
             url: '/aspectarts'
@@ -63,6 +64,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
     //a different one of the same artist, the artist will be based on the currently
     //viewed piece set in $scope.artist
     $scope.onArtistClick = function (){
+        seen=[];
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
@@ -164,6 +166,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     });
 
     $scope.onAnotherClick = function() {
+        viewed = [];
         $http({
             method: 'GET',
             url: '/aspectarts'
@@ -195,6 +198,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     };
 
     $scope.onArtistClick = function (){
+        viewed = [];
         $http({
             method: 'GET',
             url: '/artist/' + $scope.artist
