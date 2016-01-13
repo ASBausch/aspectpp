@@ -74,7 +74,6 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                 $scope.id = response.data[i]._id;
                 $scope.artist = response.data[i].artist;
                 $scope.style = response.data[i].style;
-                //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
 
                 var artNumber;
 
@@ -112,10 +111,19 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
                     $scope.id = response.data[i]._id;
                     $scope.artist = response.data[i].artist;
                     $scope.style = response.data[i].style;
+
+                    var artNumber;
+
+                    if ($scope.workNumber <2 ) {
+                        artNumber = $scope.workNumber + 1;
+                    } else {
+                        artNumber = 0
+                    }
+
+                    $scope.workNumber = artNumber;
+
                     $scope.title = response.data[i].works[$scope.workNumber].title;
                     $scope.url = response.data[i].works[$scope.workNumber].url;
-                    //$scope.yearCompleted = response.data[i].works[$scope.workNumber].yearCompleted;
-                    //$scope.publicDomain = response.data[i].works[$scope.workNumber].publicDomain;
                     seen.push($scope.id);
 
                     break;
