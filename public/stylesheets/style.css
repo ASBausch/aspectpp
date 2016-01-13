@@ -287,6 +287,19 @@ li.active a, li.active a:hover {
   padding: 0 10px;
 }
 
+.about {
+  text-align: left;
+}
+
+.about.animate-show.ng-hide-add, .about.animate-show.ng-hide-remove {
+  transition: all linear 0s;
+}
+
+.about.animate-show.ng-hide {
+  line-height: 10px;
+  opacity: 0;
+  padding: 0 10px;
+}
 
 /*----- Form elements -----*/
 #message {

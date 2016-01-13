@@ -265,7 +265,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
         if (viewed.length == 3) {
             popupS.alert({
-                content: 'Aspect is still growing, try choosing another title.'
+                content: 'Aspect is still growing. Choose a new title, or work from the artist then try for more connections.'
             });
         }
     };
