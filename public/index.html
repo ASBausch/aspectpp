@@ -11,22 +11,6 @@
 </head>
 <body ng-app="app" ng-controller='MainController as main'>
     <main>
-        <header>
-                <div class='row header col-m-12'>
-                    <div class='col-3'></div>
-                    <img class='logo col-1 copyA' ng-mouseenter="optionsAA=true" ng-mouseleave="optionsAA=false" src ="images/aspectLogo.png" alt="Aspect Logo">
-                    <p class ='copyA col-7 animate-show about' ng-show="optionsAA">
-                        Aspect is a portal for fine art from around the world.
-                        It is a tool to foster interest in, create exposure to,
-                        and educate the user in both classic and modern art.
-                        Aspects goal is to bring a bit of beauty into the day to day
-                        by providing a variety of art to a user that they may have never
-                        seen before. Often you have a favorite artist or piece of work,
-                        those pieces are comfortable and familiar, Aspect looks to expand that.
-                    <h1 class='title col-5' ng-hide="optionsAA"><a href = "/#/">{{main.title}}</a></h1>
-                    <div class='col-3'></div>
-                </div>
-        </header>
        <div ng-view></div>
         <footer class='col-12 col-m-12'><p class='copyW' ng-mouseenter="optionsCW=true" ng-mouseleave="optionsCW=false">copyright information</p>
                 <p class ='copyW animate-show' ng-show="optionsCW">
