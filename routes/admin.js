@@ -4,8 +4,8 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var mongoose = require('mongoose');
-var Art = require('../models/aspectarts');
+//var mongoose = require('mongoose');
+//var Art = require('../models/aspectarts');
 
 router.get('/', function(req, res, next) {
     /** GET makes the url available while res(responce)
