@@ -23,7 +23,7 @@
                         <button id='click' ng-click='onStyleClick()' class="artSingle" ng-mouseenter="options=true" ng-mouseleave="options=false">Style</button>
                         <button ng-click='onAnotherClick()' class="artSingle" ng-mouseenter="options2=true" ng-mouseleave="options2=false">Another</button>
                         <button ng-click='onArtistClick()' class="artSingle" ng-mouseenter="options3=true" ng-mouseleave="options3=false">Artist</button>
-                        <button class="artSingle" ng-mouseenter="options4=true" ng-mouseleave="options4=false" ngclipboard data-clipboard-text="http://localhost:3000//#/single/{{id}}/{{workNumber}}">Share</button>
+                        <button class="artSingle" ng-mouseenter="options4=true" ng-mouseleave="options4=false" ngclipboard data-clipboard-text="https://aqueous-everglades-4898.herokuapp.com/#/single/{{id}}/{{workNumber}}">Share</button>
                         </div>
                         <div>
                             <p class="col-2 buttonExplain animate-show" ng-show="options">Choose another work in {{style}}.</p>
@@ -83,7 +83,7 @@
                                             <textarea name="message" cols="40" rows="10" id="message" placeholder="What would you like to see?"></textarea>
                                         </p>
                                         <p>
-                                            <input name="location" type="hidden" value="/#/single/{{id}}/{{workNumber}}" id="location"/>
+                                            <input name="location" type="hidden" value="https://aqueous-everglades-4898.herokuapp.com/#/single/{{id}}/{{workNumber}}" id="location"/>
                                         </p>
                                         <p>
                                             <input name="submit" type="submit" value="Send" id="submit"/>
