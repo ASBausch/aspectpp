@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
     //Mail options
     mailOpts = {
         from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
-        to: 'asbausch@gmail.com',
+        to: process.env.EMAIL_ADDRESS,
         subject: 'Website contact form',
         text: req.body.message
     };
