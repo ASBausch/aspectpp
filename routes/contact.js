@@ -33,7 +33,7 @@ router.post('/', function (req, res) {
     smtpTrans.sendMail(mailOpts, function (error, response) {
         //Email not sent
         if (error) {
-            console.log(error + 'yougoofed')
+            console.log(error + 'you goofed')
         }
         //Email sent
         else {
