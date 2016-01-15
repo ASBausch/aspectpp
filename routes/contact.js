@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function (req, res) {
     var mailOpts, smtpTrans;
     //Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-    smtpTrans = nodemailer.createTransport('SMTP', {
+    smtpTrans = nodemailer.createTransport('Gmail', {
         service: 'Gmail',
         auth: {
             user: process.env.EMAIL_ADDRESS,
