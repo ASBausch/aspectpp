@@ -67,7 +67,6 @@ mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
 
-//something like this...
 app.set('dbURI', (process.env.DBURI || 'mongodb://aspect:aspectarts@ds045465.mongolab.com:45465/aspect'));
 
 app.set('port', (process.env.PORT || 3000));
