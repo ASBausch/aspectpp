@@ -137,7 +137,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
     }).then(function(response) {
 
         //all of the scope properties are set by the routeparams id
-
         $scope.workNumber = $routeParams.workNumber;
         $scope.url = response.data[0].works[$scope.workNumber].url;
         $scope.title = response.data[0].works[$scope.workNumber].title;
@@ -256,8 +255,6 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                         $scope.publicDomain = 'No'
                     }
 
-                    console.log($scope.style);
-
                     break;
                 }
             }
@@ -265,7 +262,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
         if (viewed.length == 3) {
             popupS.alert({
-                content: 'Aspect is still growing. Choose a new title, or work from the artist then try for more connections.'
+                content: 'Aspect is still growing. Choose a new title or work from the artist then try for more connections.'
             });
         }
     };
@@ -290,15 +287,11 @@ angular.module('app').controller('TabController', function ($scope){
         return $scope.currentTab === id;
     };
 
-
     if ($scope.publicDomain = true){
         $scope.publicDomain = 'Yes'
     } else {
         $scope.publicDomain = 'No'
     }
-
-    console.log($scope.view);
-
 
 });
 

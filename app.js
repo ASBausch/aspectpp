@@ -67,7 +67,8 @@ mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
 
-app.set('dbURI', (process.env.DBURI || 'mongodb://aspect:aspectarts@ds045465.mongolab.com:45465/aspect'));
+//was mongolab link - undo if broken
+app.set('dbURI', (process.env.DBURI || process.env.MONGOLAB_URI));
 
 app.set('port', (process.env.PORT || 3000));
 
