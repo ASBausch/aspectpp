@@ -42,6 +42,6 @@ router.post('/', function (req, res) {
 
     res.redirect(req.body.location);
 });
-alert('got it');
+
 module.exports = router;
 
