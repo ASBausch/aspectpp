@@ -115,7 +115,7 @@ angular.module('app').controller('ImageController', ['$scope','$http', function(
         });
         if (seen.length == 3) {
             popupS.alert({
-                content: 'Aspect is still growing. Choose a new title, or work from the artist then try for more connections.'
+                content: 'Aspect is still growing. Choose a new title or work from the artist then try for more connections.'
             });
         }
     };
@@ -266,12 +266,11 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             });
         }
     };
-
 });
 
 //controller for tabs
 
-angular.module('app').controller('TabController', function ($scope){
+angular.module('app').controller('TabController', function ($scope, $http, $routeParams){
     $scope.currentTab = null;
     //setting these functions as part of the scope makes the function available
     //to process in-line via ng-click

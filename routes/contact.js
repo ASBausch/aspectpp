@@ -6,10 +6,10 @@ var router = express.Router();
 var path = require('path');
 var nodemailer = require('nodemailer');
 
-router.get('/', function(req, res, next) {
-    res.json(data);
-    console.log(data)
-});
+//router.get('/', function(req, res, next) {
+//    res.json(data);
+//    console.log(data)
+//});
 
 router.post('/', function (req, res) {
     var mailOpts, smtpTrans;
@@ -21,7 +21,6 @@ router.post('/', function (req, res) {
             pass: process.env.EMAIL_PASSWORD
         }
     });
-
     console.log(req.body);
     //Mail options
     mailOpts = {
@@ -40,8 +39,9 @@ router.post('/', function (req, res) {
             console.log('whoosh')
         }
     });
+
     res.redirect(req.body.location);
 });
-
+alert('got it');
 module.exports = router;
 

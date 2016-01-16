@@ -16,8 +16,6 @@ var aspectarts = require('./routes/aspectarts');
 var app = express();
 var contact = require('./routes/contact');
 var nodemailer = require('nodemailer');
-
-
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -67,17 +65,6 @@ mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
 
-
-//app.set('dbURI', (process.env.DBURI || process.env.MONGOLAB_URI));
-//
-//app.set('port', (process.env.PORT || 3000));
-//
-//
-//app.listen(app.get('port'), function(){
-//  //get whatever port has been set so that it works for any port set out of express
-//  //test to see if it runs
-//  console.log('Listening on port: ', app.get('port'));
-//});
 
 //serve static pages
 //app.use('/pages', express.static(path.join(__dirname, 'admin')));

@@ -1,6 +1,13 @@
 #popupS-button-ok{
-	color: blue;
-	margin: 25px 0px 0px 5px
+	margin: 25px 0px 0px 5px;
+	background: #6F6058;
+	border-radius: 1px;
+	font-family: 'Raleway', sans-serif;
+	color: #FEFBF7;
+	font-size: 0.875em;
+	padding: 2px 0px 2px 0px;
+	outline: none;
+	cursor: alias;
 }
 
 
