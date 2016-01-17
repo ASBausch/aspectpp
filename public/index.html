@@ -13,14 +13,7 @@
     <main>
        <div ng-view></div>
         <footer class='col-12 col-m-12'><p class='copyW' ng-mouseenter="optionsCW=true" ng-mouseleave="optionsCW=false">copyright information</p>
-                <p class ='copyW animate-show' ng-show="optionsCW">
-                    Artworks protected by copyright are supposed to be used only for
-                    <br>
-                    contemplation. Images of that type of artworks are prohibited
-                    <br>
-                    for copying, printing, or any kind of reproducing and communicating
-                    <br>
-                    to public since these activities may be considered copyright infringement.</p>
+                <p class ='copyW animate-show' ng-show="optionsCW">{{main.copyRight}}</p>
         </footer>
     </main>
     <script src="vendors/angular.min.js"></script>

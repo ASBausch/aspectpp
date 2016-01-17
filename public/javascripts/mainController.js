@@ -9,6 +9,19 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ngclipboard']);
 angular.module('app').controller("MainController", function(){
     var vm = this;
     vm.title = 'Aspect';
+    vm.logoInfo = 'Aspect is a portal for fine art from around the world. ' +
+        'It is a tool to foster interest in, create exposure to,' +
+        'and educate the user in both classic and modern art.' +
+        'Aspects goal is to bring a bit of beauty into the day to da' +
+        'by providing a variety of art to a user that they may have never' +
+        'seen before. Often you have a favorite artist or piece of work,' +
+        'those pieces are comfortable and familiar, Aspect looks to expand that.' +
+        'The artist, style and title buttons below the piece will show you other works of the same artist,' +
+        'same style but different artist, or completely new artist and style.' +
+        'Share allows you to copy the link of the work you enjoy to your clipboard' +
+        'and share it however you like. You can help expand Aspects art collection ' +
+        'by submitting your suggestions to the "Thoughts" form.';
+    vm.copyRight = 'Artworks protected by copyright are to be used only for contemplation. Please see WikiArt.org for more information on Copyright'
 });
 
 //controller for main art on index page the scope and http methods of angular are required here
@@ -150,6 +163,12 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
         viewed.push($scope.id);
 
+        if ($scope.publicDomain == true){
+            $scope.publicDomain = 'Yes'
+        } else {
+            $scope.publicDomain = 'No'
+        }
+
     });
 
     $scope.onAnotherClick = function() {
@@ -174,7 +193,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
             $scope.works = response.data[randomIndex].works;
             $scope.wikiLocation = response.data[randomIndex].wikiLocation;
 
-            if ($scope.publicDomain = true){
+            if ($scope.publicDomain == true){
                 $scope.publicDomain = 'Yes'
             } else {
                 $scope.publicDomain = 'No'
@@ -206,12 +225,11 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
                 $scope.works = response.data[i].works;
                 $scope.wikiLocation = response.data[i].wikiLocation;
 
-                if ($scope.publicDomain = true){
+                if ($scope.publicDomain == true){
                     $scope.publicDomain = 'Yes'
                 } else {
                     $scope.publicDomain = 'No'
                 }
-
             }
         });
     };
@@ -249,7 +267,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
                     viewed.push($scope.id);
 
-                    if ($scope.publicDomain = true){
+                    if ($scope.publicDomain == true){
                         $scope.publicDomain = 'Yes'
                     } else {
                         $scope.publicDomain = 'No'
@@ -285,12 +303,6 @@ angular.module('app').controller('TabController', function ($scope){
     $scope.isActive = function(id) {
         return $scope.currentTab === id;
     };
-
-    if ($scope.publicDomain = true){
-        $scope.publicDomain = 'Yes'
-    } else {
-        $scope.publicDomain = 'No'
-    }
 
 });
 

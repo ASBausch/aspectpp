@@ -2,14 +2,7 @@
     <div class='row header col-m-12'>
         <div class='col-2'></div>
         <img class='logo col-1 copyA' ng-mouseenter="optionsAA=true" ng-mouseleave="optionsAA=false" src ="images/aspectLogo.png" alt="Aspect Logo">
-        <p class ='copyA col-7 animate-show about' ng-show="optionsAA">
-            Aspect is a portal for fine art from around the world.
-            It is a tool to foster interest in, create exposure to,
-            and educate the user in both classic and modern art.
-            Aspects goal is to bring a bit of beauty into the day to day
-            by providing a variety of art to a user that they may have never
-            seen before. Often you have a favorite artist or piece of work,
-            those pieces are comfortable and familiar, Aspect looks to expand that.
+        <p class ='copyA col-7 animate-show about' ng-show="optionsAA">{{main.logoInfo}}</p>
         <h1 class='title col-7' ng-hide="optionsAA"><a href = "/#/">{{main.title}}</a></h1>
         <div class='col-2'></div>
     </div>
@@ -43,16 +36,18 @@
                     <div class="tab-content">
                         <div id="tab1" ng-show="isActive('tab1')"  ng-class="{active: isActive('tab1')}">
                             <a ng-href= "{{wikiLocation}}">
-                            <p>Artist: {{artist}}</p>
+                            <p ng-mouseenter="explain=true" ng-mouseleave="explain=false">Artist: {{artist}}</p>
+                                <p ng-show="explain" class="animate-show">For more information on {{artist}} please click
+                                here to be taken to their WikiArt page.</p>
                             </a>
                             <p>Title: {{title}}</p>
                             <p>Style: {{style}}</p>
                             <p ng-hide="yearCompleted == null">Date Completed: {{yearCompleted}}</p>
-                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">Is this work in the Public Domain? : {{publicDomain}}</p>
-                            <p ng-show="display" class="animate-show">WikiArt.org (the source for Aspects images allows unlimited copying, distributing and
-                            displaying of the images of public domain artworks solely. We use here Copyright term based
-                            on authors' deaths according to U.S. Copyright Law, that is 70 years. In other countries,
-                            the duration of copyright term may differ.</p>
+                            <p ng-mouseenter="display=true" ng-mouseleave="display=false">
+                                Is this work in the Public Domain? : {{publicDomain}}</p>
+                            <p ng-show="display" class="animate-show">Works not in the Public Domain are for contemplation only. Works that are in the public domain can be copied, distributed, and displayed at will.
+                                Works not in the public domain are protected by Copyright law. Please use images legally and responsibly.
+                                </p>
                         </div>
 
                         <div id="tab2" ng-show="isActive('tab2')"  ng-class="{active: isActive('tab2')}">
