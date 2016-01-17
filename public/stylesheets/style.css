@@ -109,6 +109,7 @@ ul {
 .logo {
   padding: 17px 27px 16px 18px;
   margin: 21px 0px 0px 0px;
+  cursor: help;
 }
 
 .title {
@@ -145,7 +146,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
-  cursor: alias;
+  cursor: help;
 }
 
 .artMain {
@@ -159,7 +160,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
-  cursor: alias;
+  cursor: help;
 }
 
 .singButtons{
@@ -205,10 +206,12 @@ ul {
 .copyW {
   text-align: right;
   font-size: 10px;
+  cursor: help;
 }
 
 .copyWsingle {
   text-align: left;
+  cursor: help;
 }
 
 /*----- Tabs -----*/
@@ -283,6 +286,7 @@ li.active a, li.active a:hover {
 
 .citation {
   font-size: 8px;
+  cursor: help;
 }
 
 .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
@@ -321,4 +325,8 @@ width:100%;
   color: #FEFBF7;
   font-size: 0.875em;
   cursor: alias;
+}
+
+.ng-binding {
+  cursor: help;
 }

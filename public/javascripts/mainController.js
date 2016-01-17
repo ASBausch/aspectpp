@@ -294,6 +294,22 @@ angular.module('app').controller('TabController', function ($scope){
 
 });
 
+//angular.module('app').controller('FormController', ['$scope', function($scope, $http) {
+//    $scope.submit = function () {
+//        $http({
+//            method: 'POST',
+//            url: '/contact'
+//        })
+//    }.
+//    success(function (data, status, headers, config) {
+//        popupS.alert({
+//            content: "Thank you for your suggestion"
+//        });
+//    }).
+//    error(function (data, status, headers, config) {
+//        // something else
+//    });
+//    }]);
 
 //route providers allow partials to be viewed via ng-view
 //as well as assigning the controllers to be used in those cases
