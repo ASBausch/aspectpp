@@ -270,7 +270,7 @@ angular.module('app').controller('ArtDetailController', function($scope, $http, 
 
 //controller for tabs
 
-angular.module('app').controller('TabController', function ($scope, $http, $routeParams){
+angular.module('app').controller('TabController', function ($scope){
     $scope.currentTab = null;
     //setting these functions as part of the scope makes the function available
     //to process in-line via ng-click
