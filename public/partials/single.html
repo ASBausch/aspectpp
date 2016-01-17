@@ -58,27 +58,27 @@
                             </div>
                         </div>
 
-                        <div id="tab3" ng-show="isActive('tab3')" ng-class="{active: isActive('tab3')}">
+                        <div id="tab3" ng-show="isActive('tab3')" ng-class="{active: isActive('tab3')} ">
                             <div class="content">
-                                <form class = "contact" action="/contact" name="contact" id="contact" method="post">
+                                <form class="contact" action="/contact" name="contact" id="contact" method="post">
                                     <h3>Help Aspect Grow</h3>
                                     <p>The Aspect Collection can grow. Are we missing you favorite artist, style, or work?
                                         Tell us what you would like to see.</p>
                                     <fieldset>
                                         <p>
-                                            <label for="name">Name:</label><br/>
+                                            <label for="name" ng-model="name">Name:</label><br/>
                                             <input name="name" type="text" value="" id="name"/>
                                         </p>
                                         <p>
-                                            <label for="email">Email:</label><br/>
+                                            <label for="email" ng-model="email">Email:</label><br/>
                                             <input name="email" type="text" value="" id="email"/>
                                         </p>
                                         <p>
-                                            <label for="message">Message:</label><br/>
+                                            <label for="message" ng-model="message">Message:</label><br/>
                                             <textarea name="message" cols="40" rows="10" id="message" placeholder="What would you like to see?"></textarea>
                                         </p>
                                         <p>
-                                            <input name="location" type="hidden" value="https://aqueous-everglades-4898.herokuapp.com/#/single/{{id}}/{{workNumber}}" id="location"/>
+                                            <input name="location" ng-model="location" type="hidden" value="https://aqueous-everglades-4898.herokuapp.com/#/single/{{id}}/{{workNumber}}" id="location"/>
                                         </p>
                                         <p>
                                             <input name="submit" type="submit" value="Send" id="submit"/>

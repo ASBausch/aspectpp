@@ -304,24 +304,29 @@ angular.module('app').controller('TabController', function ($scope){
         return $scope.currentTab === id;
     };
 
-});
+    //none of this is working
+    //$scope.submitForm = function () {
+    //    $http({
+    //        method: 'POST',
+    //        url: '/contact',
+    //        data: {
+    //            name: $scope.name,
+    //            email: $scope.email,
+    //            message: $scope.message,
+    //            location: $scope.location
+    //        }
+    //
+    //    }).success(function (data, status, headers, config) {
+    //        popupS.alert({
+    //            content: "Thank you for your suggestion"
+    //        });
+    //    }).
+    //    error(function (data, status, headers, config) {
+    //        // something else
+    //    });
+    //};
 
-//angular.module('app').controller('FormController', ['$scope', function($scope, $http) {
-//    $scope.submit = function () {
-//        $http({
-//            method: 'POST',
-//            url: '/contact'
-//        })
-//    }.
-//    success(function (data, status, headers, config) {
-//        popupS.alert({
-//            content: "Thank you for your suggestion"
-//        });
-//    }).
-//    error(function (data, status, headers, config) {
-//        // something else
-//    });
-//    }]);
+});
 
 //route providers allow partials to be viewed via ng-view
 //as well as assigning the controllers to be used in those cases
