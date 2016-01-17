@@ -146,7 +146,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
-  cursor: help;
+  cursor: alias;
 }
 
 .artMain {
@@ -160,7 +160,7 @@ ul {
   font-size: 0.875em;
   padding: 2px 0px 2px 0px;
   outline: none;
-  cursor: help;
+  cursor: alias;
 }
 
 .singButtons{
@@ -328,5 +328,5 @@ width:100%;
 }
 
 .ng-binding {
-  cursor: help;
+  cursor: alias
 }
