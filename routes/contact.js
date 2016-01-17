@@ -23,7 +23,7 @@ router.post('/', function (req, res) {
         from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
         to: process.env.EMAIL_ADDRESS,
         subject: 'Website contact form',
-        text: req.body.message + 'from ' + req.body.name + 'at ' + req.body.email
+        text: req.body.message + '\n from ' + req.body.name + '\n at ' + req.body.email
     };
     smtpTrans.sendMail(mailOpts, function (error, response) {
         //Email not sent
