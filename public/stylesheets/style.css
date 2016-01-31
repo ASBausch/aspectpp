@@ -16,10 +16,6 @@ body {
   background-color: #FEFBF7;
 }
 
-img {
-
-}
-
 p {
   font-family: 'Raleway', sans-serif;
   font-size: 12px;
@@ -107,7 +103,7 @@ ul {
 }
 
 .logo {
-  padding: 17px 27px 16px 18px;
+  padding: 18px 68px 16px 18px;
   margin: 10px 0px 0px 0px;
   cursor: help;
 }
