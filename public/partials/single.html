@@ -35,8 +35,8 @@
 
                     <div class="tab-content">
                         <div id="tab1" ng-show="isActive('tab1')"  ng-class="{active: isActive('tab1')}">
-                            <a ng-href= "{{wikiLocation}}">
-                            <p ng-mouseenter="explain=true" ng-mouseleave="explain=false">Artist: {{artist}}</p>
+                            <a ng-mouseenter="explain=true" ng-mouseleave="explain=false" ng-href= "{{wikiLocation}}">
+                            <p>Artist: {{artist}}</p>
                                 <p ng-show="explain" class="animate-show">For more information on {{artist}} please click
                                 here to be taken to their WikiArt page.</p>
                             </a>
